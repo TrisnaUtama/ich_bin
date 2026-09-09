@@ -1,0 +1,6 @@
+language: typescript
+id: api
+
+tasks:
+  dev:
+    command: bun --watch index.ts
