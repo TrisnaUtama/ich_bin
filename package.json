@@ -1,0 +1,9 @@
+{
+  "name": "text-kinetic",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "trustedDependencies": ["@moonrepo/cli"],
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}
