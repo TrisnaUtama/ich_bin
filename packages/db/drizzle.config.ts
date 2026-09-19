@@ -1,6 +1,12 @@
 import { defineConfig } from "drizzle-kit";
 
-const required = ["DB_HOST", "DB_PORT", "DB_USERNAME", "DB_PASSWORD", "DB_NAME"] as const;
+const required = [
+	"DB_HOST",
+	"DB_PORT",
+	"DB_USERNAME",
+	"DB_PASSWORD",
+	"DB_NAME",
+] as const;
 const missing = required.filter((key) => !process.env[key]);
 
 if (missing.length > 0) {

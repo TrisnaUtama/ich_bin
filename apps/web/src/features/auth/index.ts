@@ -1,3 +1,12 @@
+export { authApi } from "./api/auth.api";
+export type { TokenPair } from "./api/auth.api";
+export { registerAuthRefreshHandler } from "./bootstrap";
+export { AccountSheet } from "./components/account-sheet";
 export { AuthShowcase } from "./components/auth-showcase";
 export { LoginPanel } from "./components/login-panel";
+export { UserMenu } from "./components/user-menu";
+export { useAuth } from "./hooks/use-auth";
+export { useGoogleIdToken } from "./hooks/use-google-id-token";
+export { useGoogleLogin } from "./hooks/use-google-login";
+export { useLogout } from "./hooks/use-logout";
 export { LoginPage } from "./login-page";

@@ -5,5 +5,5 @@ import { customType } from "drizzle-orm/pg-core";
  * Run `create extension if not exists citext;` once per database before migrating.
  */
 export const citext = customType<{ data: string }>({
-  dataType: () => "citext",
+	dataType: () => "citext",
 });

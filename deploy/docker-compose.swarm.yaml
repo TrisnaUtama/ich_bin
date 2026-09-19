@@ -1,0 +1,43 @@
+version: '3.8'
+
+# Deployed with: docker stack deploy -c docker-compose.swarm.yaml <stack-name>
+# (see Makefile). IMAGE_API / IMAGE_WEB / TAG are substituted from the
+# shell env (the Makefile exports them) or a .env file sitting next to
+# this compose file on the server.
+
+services:
+  api:
+    image: ${IMAGE_API}:${TAG:-latest}
+    env_file:
+      - .env
+    ports:
+      - target: 3001
+        published: ${API_PORT:-8091}
+        mode: host
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 5
+      update_config:
+        order: start-first
+        failure_action: rollback
+
+  web:
+    image: ${IMAGE_WEB}:${TAG:-latest}
+    env_file:
+      - .env
+    ports:
+      - target: 80
+        published: ${WEB_PORT:-8090}
+        mode: host
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 5
+      update_config:
+        order: start-first
+        failure_action: rollback

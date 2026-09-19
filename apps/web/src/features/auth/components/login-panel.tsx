@@ -3,10 +3,12 @@ import { useRef } from "react";
 import { BrandMark } from "#/components/ui/brand-mark";
 import { auth } from "#/content/site";
 import { EASE, fadeUp, gsap, staggerParent, useGSAP } from "#/lib/animations";
+import { useGoogleLogin } from "../hooks/use-google-login";
 import { GoogleButton } from "./google-button";
 
 export function LoginPanel() {
 	const panelRef = useRef<HTMLDivElement>(null);
+	const { login, isLoading, error } = useGoogleLogin();
 
 	useGSAP(
 		() => {
@@ -55,7 +57,14 @@ export function LoginPanel() {
 				</motion.p>
 
 				<motion.div variants={fadeUp} className="mt-12">
-					<GoogleButton />
+					<GoogleButton
+						onClick={login}
+						disabled={isLoading}
+						label={isLoading ? "Signing in..." : "Continue with Google"}
+					/>
+					{error && (
+						<p className="mt-3 text-[13px] text-red-400">{error}</p>
+					)}
 				</motion.div>
 
 				<motion.p variants={fadeUp} className="mt-5 text-[12px] text-white/35">

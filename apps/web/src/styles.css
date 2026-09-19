@@ -1,13 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @import "tailwindcss";
 
 @theme {
-	--font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, sans-serif;
+	--font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
 	--color-ink-950: #08080a;
 	--color-ink-900: #0e0e11;
 	--color-ink-800: #17171c;
 	--color-ink-700: #24242b;
+	--color-ink-600: #313139;
 
 	--color-ember-100: #ffe6c2;
 	--color-ember-200: #ffd199;
@@ -21,11 +22,27 @@
 	--color-flare-500: #f4442e;
 	--color-flare-600: #d92d1a;
 
+	/* Brand primary — #EE3D0B */
+	--color-primary-50: #fff1ec;
+	--color-primary-100: #ffe0d2;
+	--color-primary-200: #ffc1a3;
+	--color-primary-300: #ff9a6e;
+	--color-primary-400: #f96438;
+	--color-primary-500: #ee3d0b;
+	--color-primary-600: #c73009;
+	--color-primary-700: #9a260c;
+	--color-primary-800: #711c0a;
+	--color-primary-900: #4a1408;
+
 	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @utility grain {
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@utility primary-gradient {
+	background-image: linear-gradient(100deg, #14060a 0%, #3d0d0a 32%, #b32610 68%, var(--color-primary-500) 100%);
 }
 
 * {
@@ -48,6 +65,15 @@ body {
 	background-color: var(--color-ink-950);
 	color: white;
 	font-family: var(--font-sans);
+}
+
+::selection {
+	background-color: var(--color-primary-500);
+	color: white;
+}
+
+input[type="range"] {
+	accent-color: var(--color-primary-500);
 }
 
 @media (prefers-reduced-motion: reduce) {

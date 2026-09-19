@@ -1,6 +1,9 @@
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import ReactDOM from "react-dom/client";
+import { registerAuthRefreshHandler } from "#/features/auth";
 import { routeTree } from "./routeTree.gen";
+
+registerAuthRefreshHandler();
 
 const router = createRouter({
 	routeTree,

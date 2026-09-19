@@ -4,7 +4,8 @@
 	"type": "module",
 	"private": true,
 	"devDependencies": {
-		"@types/bun": "latest"
+		"@types/bun": "latest",
+		"pino-pretty": "latest"
 	},
 	"scripts": {
 		"dev": "bun --watch index.ts"
@@ -14,7 +15,11 @@
 	},
 	"dependencies": {
 		"hono": "^4.13.7",
+		"@hono/zod-openapi": "latest",
+		"@scalar/hono-api-reference": "latest",
 		"zod": "^4",
+		"jose": "^6",
+		"pino": "latest",
 		"@kinnetic/db": "workspace:*"
 	}
 }

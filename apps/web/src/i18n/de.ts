@@ -1,0 +1,138 @@
+import type { Dictionary } from "./en";
+
+export const de: Dictionary = {
+	nav: {
+		home: "Startseite",
+		templates: "Vorlagen",
+		showcase: "Showcase",
+		about: "Über Uns",
+		login: "Anmelden / Registrieren",
+	},
+	hero: {
+		title: ["Erstelle sofort Poster", "in Studioqualität & Merch."],
+		description:
+			"Gestalte, verzerre und verwandle gewöhnliche Fotos in hochwertige Poster, experimentelle Typografie und individuelle Bekleidung in Sekunden.",
+		primaryCta: "Vorlagen entdecken",
+		secondaryCta: "Showcase ansehen",
+	},
+	templatesSection: {
+		badge: "Empfohlene Presets",
+		heading: "Wähle eine Basisvorlage, um mit dem Bearbeiten zu beginnen",
+		subheading:
+			"Wähle ein experimentelles Effekt-Layout, lade dein Foto hoch und passe die Parameter direkt im Browser an.",
+		comingSoon: "Demnächst verfügbar",
+		useTemplate: "Vorlage verwenden",
+	},
+	templates: {
+		stretchWaveTimur: {
+			tag: "Verzerrung",
+			title: "Stretch-Wave-Verzerrung",
+			description:
+				"Verzerre Bildpixel in fließende, gekrümmte lineare Formen mit Live-Winkel- und Biegesteuerung.",
+		},
+		shapeTextMask: {
+			tag: "Typografie",
+			title: "Form maskiert durch Text",
+			description:
+				"Maskiere dein Foto innerhalb fetter, individueller Typografie für einen editorialen Zine-Look.",
+		},
+		textFill: {
+			tag: "Photoshop",
+			title: "Liquid-Blur-Effekt",
+			description: "Verschmelze ein Porträt mit fließenden Gradienten-Lichtstreifen.",
+		},
+		destroyedAction: {
+			tag: "Fotoeffekt",
+			title: "Zerstörte Photoshop-Aktion",
+			description:
+				"Verzerre, verschiebe und beschädige ein Bild für einen verwitterten digitalen Look.",
+		},
+		chromaticBlur: {
+			tag: "Masked · Threshold",
+			title: "Chromatischer Bewegungsunschärfe",
+			description:
+				"Kombiniere dynamische chromatische Unschärfen und Aura-Gradienten hinter den Motiven für eine futuristische Ästhetik.",
+		},
+		filmGrainDrip: {
+			tag: "Textur",
+			title: "Filmkorn & Tropfen",
+			description: "Lege analoges Korn und Tintentropfen über Porträt-Nahaufnahmen.",
+		},
+		riso: {
+			tag: "Druck",
+			title: "Riso-Zine-Druck",
+			description: "Zweifarbige Risografie-Druckoptik mit handgezeichneten Overlays.",
+		},
+		duotoneSunset: {
+			tag: "Duotone",
+			title: "Duotone Sonnenuntergang",
+			description: "Warme Duotone-Abstufung inspiriert von Golden-Hour-Silhouetten.",
+		},
+	},
+	auth: {
+		heading: "Willkommen bei",
+		continueWithGoogle: "Mit Google fortfahren",
+		loggingIn: "Anmeldung läuft…",
+		terms: { tos: "Nutzungsbedingungen", privacy: "Datenschutzrichtlinie" },
+	},
+	editor: {
+		loading: "Wird geladen…",
+		backToHome: "Zurück zur Startseite",
+		export: "PNG exportieren",
+		editor: "Editor",
+		sourceAsset: "Quellbild",
+		clickToReplace: "Klicken, um das Bild zu ersetzen",
+		effectParameters: "Effektparameter",
+		noEffects: "Diese Vorlage verwendet keine Effekte.",
+		maskText: "Masken-Text",
+		textFill: "Textfüllung",
+		mode: "Modus",
+		typography: "Typografie-Overlay",
+		canvasSettings: "Canvas-Einstellungen",
+		selectTexture: "Textur auswählen",
+		none: "Keine",
+		blendMode: "Mischmodus",
+		opacity: "Deckkraft",
+		fill: "Füllung",
+		imageControls: "Bildsteuerung",
+		color: "Farbe",
+		size: "Größe",
+		lineHeight: "Zeilenhöhe",
+		letterSpacing: "Zeichenabstand",
+		angle: "Winkel",
+		stop: "Stopp",
+	},
+	account: {
+		menuTitle: "Konto",
+		overview: "Übersicht",
+		billing: "Abrechnung",
+		templates: "Vorlagen",
+		subscription: "Abonnement",
+		creditBalance: "Guthaben",
+		credits: "Credits",
+		buyCredits: "Credits kaufen",
+		currentPlan: "Aktueller Plan",
+		freePlan: "Kostenloser Plan",
+		upgrade: "Plan upgraden",
+		paymentMethod: "Zahlungsmethode",
+		noPaymentMethod: "Noch keine Zahlungsmethode hinterlegt.",
+		addPaymentMethod: "Zahlungsmethode hinzufügen",
+		billingHistory: "Abrechnungsverlauf",
+		noBillingHistory: "Noch keine Rechnungen.",
+		purchasedTemplatesTitle: "Gekaufte Vorlagen",
+		purchasedTemplatesEmpty: "Du hast noch keine Premium-Vorlagen gekauft.",
+		browseTemplates: "Vorlagen durchsuchen",
+		subscriptionStatus: "Status",
+		subscriptionActive: "Aktiv",
+		subscriptionNone: "Du hast noch kein Abonnement.",
+		manageSubscription: "Abonnement verwalten",
+		viewPlans: "Pläne ansehen",
+		settings: "Einstellungen",
+		logout: "Abmelden",
+		loggingOut: "Wird abgemeldet…",
+		close: "Schließen",
+	},
+	common: {
+		language: "Sprache",
+	},
+};

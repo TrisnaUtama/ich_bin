@@ -1,0 +1,164 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [staging, main]
+  pull_request:
+    branches: [staging, main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ---------------------------------------------------------------------
+  # 1. Typecheck every workspace + lint. Runs on every push and PR — this
+  #    is the gate everything else waits on.
+  # ---------------------------------------------------------------------
+  typecheck:
+    name: Typecheck & lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck apps/api
+        run: bunx tsc --noEmit -p apps/api
+
+      - name: Typecheck apps/web
+        run: bunx tsc --noEmit -p apps/web
+
+      - name: Typecheck packages/db
+        run: bunx tsc --noEmit -p packages/db
+
+      - name: Lint (biome)
+        run: bunx biome ci .
+
+  # ---------------------------------------------------------------------
+  # 2. Build & push images to GHCR. Only on push (not PRs — forks don't
+  #    get registry write access), and only once typecheck passes. Two
+  #    images, tagged with the full commit sha (matches the
+  #    docker-pull/service-update convention already used on the server)
+  #    plus the branch name as a floating tag.
+  # ---------------------------------------------------------------------
+  build:
+    name: Build & push images
+    needs: typecheck
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image-api: ${{ steps.names.outputs.image-api }}
+      image-web: ${{ steps.names.outputs.image-web }}
+      tag: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # GHCR requires a lowercase image path; github.repository can be
+      # mixed case, so normalize it once and reuse everywhere.
+      - name: Resolve image names
+        id: names
+        run: |
+          repo_lower=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "image-api=ghcr.io/${repo_lower}-api" >> "$GITHUB_OUTPUT"
+          echo "image-web=ghcr.io/${repo_lower}-web" >> "$GITHUB_OUTPUT"
+
+      - name: Build & push api image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: apps/api/Dockerfile
+          push: true
+          tags: |
+            ${{ steps.names.outputs.image-api }}:${{ github.sha }}
+            ${{ steps.names.outputs.image-api }}:${{ github.ref_name }}
+          cache-from: type=gha,scope=api
+          cache-to: type=gha,mode=max,scope=api
+
+      - name: Build & push web image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: apps/web/Dockerfile
+          push: true
+          tags: |
+            ${{ steps.names.outputs.image-web }}:${{ github.sha }}
+            ${{ steps.names.outputs.image-web }}:${{ github.ref_name }}
+          cache-from: type=gha,scope=web
+          cache-to: type=gha,mode=max,scope=web
+
+  # ---------------------------------------------------------------------
+  # 3. Deploy to staging — pushes to the `staging` branch only. SSHes
+  #    into the homelab server and runs the same pull + service-update
+  #    pattern already used for yonstrans-api (see deploy/Makefile).
+  # ---------------------------------------------------------------------
+  deploy-staging:
+    name: Deploy to staging
+    needs: build
+    if: github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: ${{ vars.STAGING_URL }}
+    steps:
+      - name: Update services over SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            set -e
+            cd ${{ vars.STAGING_DEPLOY_PATH || '/var/www/kinnetics-staging' }}
+            make update \
+              IMAGE_API=${{ needs.build.outputs.image-api }} \
+              IMAGE_WEB=${{ needs.build.outputs.image-web }} \
+              TAG=${{ needs.build.outputs.tag }}
+
+  # ---------------------------------------------------------------------
+  # 4. Deploy to production — pushes to `main` only, and gated behind the
+  #    "production" GitHub Environment. Nothing runs here until:
+  #      - you actually push to main (staging is where day-to-day work
+  #        lands for now), and
+  #      - the `production` secrets below are configured.
+  #    For a manual approval gate before it runs, add required reviewers
+  #    to the "production" environment under Settings → Environments.
+  # ---------------------------------------------------------------------
+  deploy-production:
+    name: Deploy to production
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ vars.PRODUCTION_URL }}
+    steps:
+      - name: Update services over SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            set -e
+            cd ${{ vars.PRODUCTION_DEPLOY_PATH || '/var/www/kinnetics-prod' }}
+            make update \
+              IMAGE_API=${{ needs.build.outputs.image-api }} \
+              IMAGE_WEB=${{ needs.build.outputs.image-web }} \
+              TAG=${{ needs.build.outputs.tag }}

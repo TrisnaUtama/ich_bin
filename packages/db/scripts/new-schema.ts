@@ -80,7 +80,9 @@ if (!indexContent.includes(exportLine)) {
 console.log(`\nNext steps:`);
 console.log(`  1. Fill in the columns in src/schema/${fileName}.ts`);
 console.log(`  2. If it references another table, import it by its full`);
-console.log(`     prefixed filename, e.g. import { users } from "./0001_users";`);
+console.log(
+	`     prefixed filename, e.g. import { users } from "./0001_users";`,
+);
 console.log(`  3. make db-generate`);
 console.log(`  4. review the generated SQL in migrations/`);
 console.log(`  5. make db-migrate`);
