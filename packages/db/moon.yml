@@ -1,0 +1,14 @@
+language: typescript
+id: db
+
+tasks:
+  new-schema:
+    command: bun scripts/new-schema.ts
+  db-generate:
+    command: bunx drizzle-kit generate
+  db-migrate:
+    command: bunx drizzle-kit migrate
+  db-push:
+    command: bunx drizzle-kit push
+  db-studio:
+    command: bunx drizzle-kit studio
