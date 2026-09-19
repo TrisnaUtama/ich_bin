@@ -54,6 +54,13 @@ export function useGoogleIdToken() {
 					client_id: env.googleClientId,
 					auto_select: false,
 					cancel_on_tap_outside: true,
+					// Opt into FedCM now rather than waiting for Google to make
+					// it mandatory. This also sidesteps the classic One Tap
+					// failure mode where a browser silently blocks the
+					// third-party cookie/iframe the legacy prompt relies on
+					// (Firefox's Total Cookie Protection is a common culprit) —
+					// FedCM is mediated by the browser itself instead.
+					use_fedcm_for_prompt: true,
 					callback: (response) => {
 						pendingResolveRef.current?.(response.credential);
 						pendingResolveRef.current = null;
@@ -82,6 +89,21 @@ export function useGoogleIdToken() {
 
 			window.google.accounts.id.prompt((notification) => {
 				if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+					// Surface *why* Google skipped the prompt — e.g.
+					// "unregistered_origin" (Authorized JavaScript origins
+					// misconfigured, or the change hasn't propagated yet),
+					// "suppressed_by_user", "opt_out_or_no_session", or a
+					// browser silently blocking the third-party cookie/iframe
+					// One Tap depends on (common in Firefox's Total Cookie
+					// Protection). Check devtools console for this on report.
+					console.warn("[google-id-token] prompt not shown", {
+						notDisplayedReason: notification.isNotDisplayed()
+							? notification.getNotDisplayedReason()
+							: undefined,
+						skippedReason: notification.isSkippedMoment()
+							? notification.getSkippedReason()
+							: undefined,
+					});
 					pendingResolveRef.current = null;
 					reject(
 						new Error(

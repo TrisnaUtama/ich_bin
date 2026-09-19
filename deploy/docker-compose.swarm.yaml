@@ -16,7 +16,7 @@ services:
         delay: 5s
         max_attempts: 5
       update_config:
-        order: start-first
+        order: stop-first
         failure_action: rollback
 
   web:
@@ -34,5 +34,5 @@ services:
         delay: 5s
         max_attempts: 5
       update_config:
-        order: start-first
+        order: stop-first
         failure_action: rollback
