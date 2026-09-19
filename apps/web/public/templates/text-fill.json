@@ -1,0 +1,52 @@
+{
+	"id": "text-fill",
+	"name": "Text Fill Shape",
+	"version": 2,
+	"aspectRatios": ["1:1"],
+	"fonts": ["Courier New", "Arial", "Impact", "Georgia"],
+	"canvas": {
+		"width": 1080,
+		"height": 1080,
+		"background": {
+			"kind": "solid",
+			"color": "#ffffff",
+			"opacity": 1,
+			"gradient": {
+				"type": "linear",
+				"angle": 45,
+				"stops": [
+					{ "color": "#ffffff", "position": 0 },
+					{ "color": "#000000", "position": 1 }
+				]
+			}
+		}
+	},
+	"layers": [
+		{
+			"type": "image",
+			"slot": "photo",
+			"fit": "cover",
+			"textFill": {
+				"text": "Nothing stands still pause too long the person you were will move on without you being unseen isnt failure it is the call to push harder until your dream comes true life will always bring hardship but with a positive mindset anxiety turns into strength ",
+				"font": "Courier New",
+				"size": 14,
+				"lineHeight": 14,
+				"color": "#000000",
+				"mode": "inner"
+			},
+			"controls": {
+				"exposure": 0,
+				"contrast": 0,
+				"saturation": 0,
+				"temperature": 0,
+				"tint": 0,
+				"highlights": 0,
+				"shadows": 0,
+				"opacity": 100,
+				"scale": 100,
+				"rotation": 0
+			},
+			"effects": []
+		}
+	]
+}

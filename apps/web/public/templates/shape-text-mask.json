@@ -1,0 +1,52 @@
+{
+	"id": "shape-text-mask",
+	"name": "Shape Masked by Text",
+	"version": 2,
+	"aspectRatios": ["1:1"],
+	"fonts": ["Impact", "Arial", "Arial Narrow", "Gothic"],
+	"canvas": {
+		"width": 1080,
+		"height": 1080,
+		"background": {
+			"kind": "solid",
+			"color": "#111111",
+			"opacity": 1,
+			"gradient": {
+				"type": "linear",
+				"angle": 45,
+				"stops": [
+					{ "color": "#111111", "position": 0 },
+					{ "color": "#000000", "position": 1 }
+				]
+			}
+		}
+	},
+	"layers": [
+		{
+			"type": "image",
+			"slot": "photo",
+			"fit": "cover",
+			"maskText": {
+				"text": "TIMUR",
+				"font": "Impact",
+				"size": 360,
+				"letterSpacing": 0,
+				"x": 80,
+				"y": 360
+			},
+			"controls": {
+				"exposure": 0,
+				"contrast": 0,
+				"saturation": 0,
+				"temperature": 0,
+				"tint": 0,
+				"highlights": 0,
+				"shadows": 0,
+				"opacity": 100,
+				"scale": 100,
+				"rotation": 0
+			},
+			"effects": []
+		}
+	]
+}

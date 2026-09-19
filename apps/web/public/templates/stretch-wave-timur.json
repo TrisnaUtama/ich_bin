@@ -1,0 +1,80 @@
+{
+	"id": "stretch-wave-timur",
+	"name": "Stretch Wave Timur",
+	"version": 2,
+	"aspectRatios": ["4:5"],
+	"fonts": ["Arial", "Arial Narrow", "Gothic", "Inter"],
+	"canvas": {
+		"width": 1080,
+		"height": 1350,
+		"background": {
+			"kind": "solid",
+			"color": "#ffffff",
+			"opacity": 1,
+			"gradient": {
+				"type": "linear",
+				"angle": 45,
+				"stops": [
+					{ "color": "#ffffff", "position": 0 },
+					{ "color": "#000000", "position": 1 }
+				]
+			}
+		}
+	},
+	"layers": [
+		{
+			"type": "image",
+			"slot": "photo",
+			"effectFit": "cover",
+			"subjectFit": "contain",
+			"controls": {
+				"exposure": 0,
+				"contrast": 0,
+				"saturation": 0,
+				"temperature": 0,
+				"tint": 0,
+				"highlights": 0,
+				"shadows": 0,
+				"opacity": 100,
+				"scale": 100,
+				"rotation": 0
+			},
+			"effects": [
+				{
+					"id": "pixel-stretch",
+					"type": "pixelStretch",
+					"stretchXLeft": 45,
+					"angle": 0,
+					"waveFrequency": 2.2,
+					"intensity": 82,
+					"grain": 4
+				}
+			]
+		},
+		{
+			"type": "text",
+			"slot": "heading",
+			"label": "Heading (Text 1)",
+			"default": "Timur",
+			"font": "Arial",
+			"size": 94,
+			"letterSpacing": 0,
+			"color": "#000000",
+			"x": 66,
+			"y": 1100
+		},
+		{
+			"type": "text",
+			"slot": "description",
+			"label": "Description 2",
+			"default": "Lorem ipsum dolor sit amet...",
+			"font": "Arial Narrow",
+			"size": 30,
+			"letterSpacing": 0,
+			"color": "#000000",
+			"x": 70,
+			"y": 1184,
+			"maxWidth": 661
+		}
+	]
+}

@@ -1,7 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 @import "tailwindcss";
+
+@theme {
+	--font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+	--color-ink-950: #08080a;
+	--color-ink-900: #0e0e11;
+	--color-ink-800: #17171c;
+	--color-ink-700: #24242b;
+
+	--color-ember-100: #ffe6c2;
+	--color-ember-200: #ffd199;
+	--color-ember-300: #ffb057;
+	--color-ember-400: #ff9224;
+	--color-ember-500: #f97507;
+	--color-ember-600: #e2570a;
+	--color-ember-700: #b73d0c;
+
+	--color-flare-400: #ff6a4d;
+	--color-flare-500: #f4442e;
+	--color-flare-600: #d92d1a;
+
+	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility grain {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
 * {
 	box-sizing: border-box;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	scroll-behavior: smooth;
 }
 
 html,
@@ -12,4 +45,17 @@ body,
 
 body {
 	margin: 0;
+	background-color: var(--color-ink-950);
+	color: white;
+	font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
 }
