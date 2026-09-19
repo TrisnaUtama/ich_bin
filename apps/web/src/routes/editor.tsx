@@ -194,355 +194,344 @@ function Editor() {
 			</h2>
 
 			<Section
-							title={t("editor.sourceAsset")}
-							enabled={state.sections.source}
-							onToggle={(v) => setSection("source", v)}
-						>
-							<label className="block cursor-pointer rounded-xl border border-dashed border-white/15 py-6 text-center text-xs text-white/45 transition-colors hover:border-primary-500 hover:text-white/70">
-								{t("editor.clickToReplace")}
-								<input
-									type="file"
-									accept="image/*"
-									className="hidden"
-									onChange={onReplace}
-								/>
-							</label>
-						</Section>
+				title={t("editor.sourceAsset")}
+				enabled={state.sections.source}
+				onToggle={(v) => setSection("source", v)}
+			>
+				<label className="block cursor-pointer rounded-xl border border-dashed border-white/15 py-6 text-center text-xs text-white/45 transition-colors hover:border-primary-500 hover:text-white/70">
+					{t("editor.clickToReplace")}
+					<input
+						type="file"
+						accept="image/*"
+						className="hidden"
+						onChange={onReplace}
+					/>
+				</label>
+			</Section>
 
-						<Section
-							title={t("editor.effectParameters")}
-							enabled={state.sections.effects}
-							onToggle={(v) => setSection("effects", v)}
-						>
-							{Object.keys(state.effects).length === 0 && (
-								<p className="text-xs text-white/40">{t("editor.noEffects")}</p>
-							)}
-							{Object.entries(state.effects).map(([id, fx]) =>
-								Object.entries(fx.params).map(([key, val]) => {
-									const d = EFFECT_REGISTRY[fx.type]?.params[key];
-									if (d?.kind === "select" && d.options) {
-										return (
-											<label key={`${id}-${key}`} className="block space-y-1">
-												<span className="text-xs text-white/45">
-													{d.label}
-												</span>
-												<select
-													value={val}
-													onChange={(e) =>
-														setEffect(id, key, Number(e.target.value))
-													}
-													className="w-full rounded-xl border border-white/10 bg-ink-800 px-3 py-2 text-sm text-white outline-none transition-colors focus:border-primary-500"
-												>
-													{d.options.map((o) => (
-														<option key={o.value} value={o.value}>
-															{o.label}
-														</option>
-													))}
-												</select>
-											</label>
-										);
-									}
-									return (
-										<Slider
-											key={`${id}-${key}`}
-											label={d?.label ?? `${fx.type} · ${key}`}
-											value={val}
-											min={d?.min ?? 0}
-											max={d?.max ?? 10}
-											step={d?.step ?? 0.1}
-											onChange={(v) => setEffect(id, key, v)}
-										/>
-									);
-								}),
-							)}
-						</Section>
-
-						{state.mask && (
-							<Section title={t("editor.maskText")}>
-								<TextField
-									value={state.mask.text}
-									onChange={(v) => setMask({ text: v })}
-								/>
-								<Select
-									value={state.mask.font}
-									options={template.fonts}
-									onChange={(v) => setMask({ font: v })}
-								/>
-								<Slider
-									label={t("editor.size")}
-									value={state.mask.size}
-									min={40}
-									max={800}
-									step={1}
-									onChange={(v) => setMask({ size: v })}
-								/>
-							</Section>
-						)}
-
-						{state.textFill && (
-							<Section title={t("editor.textFill")}>
-								<TextField
-									value={state.textFill.text}
-									onChange={(v) => setTextFill({ text: v })}
-								/>
-								<Select
-									value={state.textFill.font}
-									options={template.fonts}
-									onChange={(v) => setTextFill({ font: v })}
-								/>
-								<Slider
-									label={t("editor.size")}
-									value={state.textFill.size}
-									min={8}
-									max={60}
-									step={1}
-									onChange={(v) => setTextFill({ size: v })}
-								/>
-								<Slider
-									label={t("editor.lineHeight")}
-									value={state.textFill.lineHeight}
-									min={8}
-									max={60}
-									step={1}
-									onChange={(v) => setTextFill({ lineHeight: v })}
-								/>
-								<ColorField
-									label={t("editor.color")}
-									value={state.textFill.color}
-									onChange={(v) => setTextFill({ color: v })}
-								/>
-								<div>
-									<p className="mb-1 text-xs text-white/45">
-										{t("editor.mode")}
-									</p>
-									<Tabs
-										value={state.textFill.mode}
-										options={["inner", "outer"]}
-										onChange={(v) =>
-											setTextFill({ mode: v as "inner" | "outer" })
-										}
-									/>
-								</div>
-							</Section>
-						)}
-
-						<Section
-							title={t("editor.typography")}
-							enabled={state.sections.typography}
-							onToggle={(v) => setSection("typography", v)}
-						>
-							{template.layers
-								.filter(
-									(l): l is Extract<typeof l, { type: "text" }> =>
-										l.type === "text",
-								)
-								.map((layer) => {
-									const t2 = state.texts[layer.slot];
-									return (
-										<div
-											key={layer.slot}
-											className="space-y-2 rounded-xl bg-ink-800/60 p-3"
-										>
-											<p className="text-xs text-white/45">{layer.label}</p>
-											<TextField
-												value={t2.value}
-												onChange={(v) => setText(layer.slot, { value: v })}
-											/>
-											<Select
-												value={t2.font}
-												options={template.fonts}
-												onChange={(v) => setText(layer.slot, { font: v })}
-											/>
-											<Slider
-												label={t("editor.size")}
-												value={t2.size}
-												min={8}
-												max={200}
-												step={1}
-												onChange={(v) => setText(layer.slot, { size: v })}
-											/>
-											<Slider
-												label={t("editor.letterSpacing")}
-												value={t2.letterSpacing}
-												min={0}
-												max={20}
-												step={0.1}
-												onChange={(v) =>
-													setText(layer.slot, { letterSpacing: v })
-												}
-											/>
-											<ColorField
-												label={t("editor.color")}
-												value={t2.color}
-												onChange={(v) => setText(layer.slot, { color: v })}
-											/>
-										</div>
-									);
-								})}
-						</Section>
-
-						<Section
-							title={t("editor.canvasSettings")}
-							enabled={state.sections.canvas}
-							onToggle={(v) => setSection("canvas", v)}
-						>
-							<Tabs
-								value={state.background.kind}
-								options={["solid", "gradient"]}
-								onChange={(v) => setBg({ kind: v as "solid" | "gradient" })}
+			<Section
+				title={t("editor.effectParameters")}
+				enabled={state.sections.effects}
+				onToggle={(v) => setSection("effects", v)}
+			>
+				{Object.keys(state.effects).length === 0 && (
+					<p className="text-xs text-white/40">{t("editor.noEffects")}</p>
+				)}
+				{Object.entries(state.effects).map(([id, fx]) =>
+					Object.entries(fx.params).map(([key, val]) => {
+						const d = EFFECT_REGISTRY[fx.type]?.params[key];
+						if (d?.kind === "select" && d.options) {
+							return (
+								<label key={`${id}-${key}`} className="block space-y-1">
+									<span className="text-xs text-white/45">{d.label}</span>
+									<select
+										value={val}
+										onChange={(e) => setEffect(id, key, Number(e.target.value))}
+										className="w-full rounded-xl border border-white/10 bg-ink-800 px-3 py-2 text-sm text-white outline-none transition-colors focus:border-primary-500"
+									>
+										{d.options.map((o) => (
+											<option key={o.value} value={o.value}>
+												{o.label}
+											</option>
+										))}
+									</select>
+								</label>
+							);
+						}
+						return (
+							<Slider
+								key={`${id}-${key}`}
+								label={d?.label ?? `${fx.type} · ${key}`}
+								value={val}
+								min={d?.min ?? 0}
+								max={d?.max ?? 10}
+								step={d?.step ?? 0.1}
+								onChange={(v) => setEffect(id, key, v)}
 							/>
-							{state.background.kind === "solid" ? (
+						);
+					}),
+				)}
+			</Section>
+
+			{state.mask && (
+				<Section title={t("editor.maskText")}>
+					<TextField
+						value={state.mask.text}
+						onChange={(v) => setMask({ text: v })}
+					/>
+					<Select
+						value={state.mask.font}
+						options={template.fonts}
+						onChange={(v) => setMask({ font: v })}
+					/>
+					<Slider
+						label={t("editor.size")}
+						value={state.mask.size}
+						min={40}
+						max={800}
+						step={1}
+						onChange={(v) => setMask({ size: v })}
+					/>
+				</Section>
+			)}
+
+			{state.textFill && (
+				<Section title={t("editor.textFill")}>
+					<TextField
+						value={state.textFill.text}
+						onChange={(v) => setTextFill({ text: v })}
+					/>
+					<Select
+						value={state.textFill.font}
+						options={template.fonts}
+						onChange={(v) => setTextFill({ font: v })}
+					/>
+					<Slider
+						label={t("editor.size")}
+						value={state.textFill.size}
+						min={8}
+						max={60}
+						step={1}
+						onChange={(v) => setTextFill({ size: v })}
+					/>
+					<Slider
+						label={t("editor.lineHeight")}
+						value={state.textFill.lineHeight}
+						min={8}
+						max={60}
+						step={1}
+						onChange={(v) => setTextFill({ lineHeight: v })}
+					/>
+					<ColorField
+						label={t("editor.color")}
+						value={state.textFill.color}
+						onChange={(v) => setTextFill({ color: v })}
+					/>
+					<div>
+						<p className="mb-1 text-xs text-white/45">{t("editor.mode")}</p>
+						<Tabs
+							value={state.textFill.mode}
+							options={["inner", "outer"]}
+							onChange={(v) => setTextFill({ mode: v as "inner" | "outer" })}
+						/>
+					</div>
+				</Section>
+			)}
+
+			<Section
+				title={t("editor.typography")}
+				enabled={state.sections.typography}
+				onToggle={(v) => setSection("typography", v)}
+			>
+				{template.layers
+					.filter(
+						(l): l is Extract<typeof l, { type: "text" }> => l.type === "text",
+					)
+					.map((layer) => {
+						const t2 = state.texts[layer.slot];
+						return (
+							<div
+								key={layer.slot}
+								className="space-y-2 rounded-xl bg-ink-800/60 p-3"
+							>
+								<p className="text-xs text-white/45">{layer.label}</p>
+								<TextField
+									value={t2.value}
+									onChange={(v) => setText(layer.slot, { value: v })}
+								/>
+								<Select
+									value={t2.font}
+									options={template.fonts}
+									onChange={(v) => setText(layer.slot, { font: v })}
+								/>
+								<Slider
+									label={t("editor.size")}
+									value={t2.size}
+									min={8}
+									max={200}
+									step={1}
+									onChange={(v) => setText(layer.slot, { size: v })}
+								/>
+								<Slider
+									label={t("editor.letterSpacing")}
+									value={t2.letterSpacing}
+									min={0}
+									max={20}
+									step={0.1}
+									onChange={(v) => setText(layer.slot, { letterSpacing: v })}
+								/>
 								<ColorField
 									label={t("editor.color")}
-									value={state.background.color}
-									onChange={(v) => setBg({ color: v })}
+									value={t2.color}
+									onChange={(v) => setText(layer.slot, { color: v })}
 								/>
-							) : (
-								<div className="space-y-3">
-									<GradientPresetGrid
-										activeId={activeGradientPresetId}
-										onSelect={applyGradientPreset}
-									/>
-									{state.background.gradient.stops.map((stop, i) => (
-										<ColorField
-											key={`stop-${i}`}
-											label={`${t("editor.stop")} ${i + 1} (${Math.round(stop.position * 100)}%)`}
-											value={stop.color}
+							</div>
+						);
+					})}
+			</Section>
+
+			<Section
+				title={t("editor.canvasSettings")}
+				enabled={state.sections.canvas}
+				onToggle={(v) => setSection("canvas", v)}
+			>
+				<Tabs
+					value={state.background.kind}
+					options={["solid", "gradient"]}
+					onChange={(v) => setBg({ kind: v as "solid" | "gradient" })}
+				/>
+				{state.background.kind === "solid" ? (
+					<ColorField
+						label={t("editor.color")}
+						value={state.background.color}
+						onChange={(v) => setBg({ color: v })}
+					/>
+				) : (
+					<div className="space-y-3">
+						<GradientPresetGrid
+							activeId={activeGradientPresetId}
+							onSelect={applyGradientPreset}
+						/>
+						{state.background.gradient.stops.map((stop, i) => (
+							<ColorField
+								key={`stop-${i}`}
+								label={`${t("editor.stop")} ${i + 1} (${Math.round(stop.position * 100)}%)`}
+								value={stop.color}
+								onChange={(v) =>
+									setBg({
+										gradient: {
+											...state.background.gradient,
+											stops: state.background.gradient.stops.map((s, j) =>
+												j === i ? { ...s, color: v } : s,
+											),
+										},
+									})
+								}
+							/>
+						))}
+						<Slider
+							label={t("editor.angle")}
+							value={state.background.gradient.angle}
+							min={0}
+							max={360}
+							step={1}
+							onChange={(v) =>
+								setBg({
+									gradient: { ...state.background.gradient, angle: v },
+								})
+							}
+						/>
+					</div>
+				)}
+
+				{state.background.texture && (
+					<div className="space-y-3 rounded-xl border border-white/10 p-3">
+						<p className="text-xs font-medium text-white/60">
+							{t("editor.selectTexture")}
+						</p>
+						<div className="grid grid-cols-4 gap-2">
+							{TEXTURE_CATALOG.map((tex) => {
+								const active = state.background.texture?.name === tex.name;
+								return (
+									<button
+										key={tex.name}
+										type="button"
+										onClick={() => onPickTexture(tex.name)}
+										className={`overflow-hidden rounded-lg border-2 ${active ? "border-primary-500" : "border-white/10"}`}
+									>
+										{tex.name === "none" ? (
+											<div className="grid h-12 place-items-center text-[10px] text-white/40">
+												{t("editor.none")}
+											</div>
+										) : (
+											<img
+												src={`/textures/${tex.name}.png`}
+												alt={tex.label}
+												className="h-12 w-full object-cover"
+											/>
+										)}
+										<span className="block truncate px-1 py-0.5 text-[9px] text-white/45">
+											{tex.label}
+										</span>
+									</button>
+								);
+							})}
+						</div>
+
+						{state.background.texture.name !== "none" && (
+							<div className="space-y-2 border-t border-white/10 pt-3">
+								<div className="flex items-center justify-between">
+									<span className="text-xs text-white/45">
+										{t("editor.blendMode")}
+									</span>
+									<div className="w-32">
+										<Select
+											value={state.background.texture.blendMode}
+											options={BLEND_MODES}
 											onChange={(v) =>
 												setBg({
-													gradient: {
-														...state.background.gradient,
-														stops: state.background.gradient.stops.map((s, j) =>
-															j === i ? { ...s, color: v } : s,
-														),
+													texture: {
+														...state.background.texture!,
+														blendMode: v as never,
 													},
 												})
 											}
 										/>
-									))}
-									<Slider
-										label={t("editor.angle")}
-										value={state.background.gradient.angle}
-										min={0}
-										max={360}
-										step={1}
-										onChange={(v) =>
-											setBg({
-												gradient: { ...state.background.gradient, angle: v },
-											})
-										}
-									/>
-								</div>
-							)}
-
-							{state.background.texture && (
-								<div className="space-y-3 rounded-xl border border-white/10 p-3">
-									<p className="text-xs font-medium text-white/60">
-										{t("editor.selectTexture")}
-									</p>
-									<div className="grid grid-cols-4 gap-2">
-										{TEXTURE_CATALOG.map((tex) => {
-											const active = state.background.texture?.name === tex.name;
-											return (
-												<button
-													key={tex.name}
-													type="button"
-													onClick={() => onPickTexture(tex.name)}
-													className={`overflow-hidden rounded-lg border-2 ${active ? "border-primary-500" : "border-white/10"}`}
-												>
-													{tex.name === "none" ? (
-														<div className="grid h-12 place-items-center text-[10px] text-white/40">
-															{t("editor.none")}
-														</div>
-													) : (
-														<img
-															src={`/textures/${tex.name}.png`}
-															alt={tex.label}
-															className="h-12 w-full object-cover"
-														/>
-													)}
-													<span className="block truncate px-1 py-0.5 text-[9px] text-white/45">
-														{tex.label}
-													</span>
-												</button>
-											);
-										})}
 									</div>
-
-									{state.background.texture.name !== "none" && (
-										<div className="space-y-2 border-t border-white/10 pt-3">
-											<div className="flex items-center justify-between">
-												<span className="text-xs text-white/45">
-													{t("editor.blendMode")}
-												</span>
-												<div className="w-32">
-													<Select
-														value={state.background.texture.blendMode}
-														options={BLEND_MODES}
-														onChange={(v) =>
-															setBg({
-																texture: {
-																	...state.background.texture!,
-																	blendMode: v as never,
-																},
-															})
-														}
-													/>
-												</div>
-											</div>
-											<Slider
-												label={`${t("editor.opacity")} ${state.background.texture.opacity}%`}
-												value={state.background.texture.opacity}
-												min={0}
-												max={100}
-												step={1}
-												onChange={(v) =>
-													setBg({
-														texture: { ...state.background.texture!, opacity: v },
-													})
-												}
-											/>
-											<Slider
-												label={`${t("editor.fill")} ${state.background.texture.fill}%`}
-												value={state.background.texture.fill}
-												min={0}
-												max={100}
-												step={1}
-												onChange={(v) =>
-													setBg({
-														texture: { ...state.background.texture!, fill: v },
-													})
-												}
-											/>
-										</div>
-									)}
 								</div>
-							)}
-						</Section>
+								<Slider
+									label={`${t("editor.opacity")} ${state.background.texture.opacity}%`}
+									value={state.background.texture.opacity}
+									min={0}
+									max={100}
+									step={1}
+									onChange={(v) =>
+										setBg({
+											texture: { ...state.background.texture!, opacity: v },
+										})
+									}
+								/>
+								<Slider
+									label={`${t("editor.fill")} ${state.background.texture.fill}%`}
+									value={state.background.texture.fill}
+									min={0}
+									max={100}
+									step={1}
+									onChange={(v) =>
+										setBg({
+											texture: { ...state.background.texture!, fill: v },
+										})
+									}
+								/>
+							</div>
+						)}
+					</div>
+				)}
+			</Section>
 
-						{/* Image Controls — saat text-fill aktif, hanya scale/rotation/opacity yang
+			{/* Image Controls — saat text-fill aktif, hanya scale/rotation/opacity yang
               berefek (dipakai untuk transform mask siluet gambar), jadi filter di bawah
               yang menentukan kontrol mana yang tampil. Section ini TETAP dirender untuk
               kedua mode, cuma daftar kontrolnya yang berbeda. */}
-						<Section title={t("editor.imageControls")}>
-							{Object.entries(IMAGE_CONTROL_REGISTRY)
-								.filter(([key]) =>
-									state.textFill
-										? ["scale", "rotation", "opacity"].includes(key)
-										: true,
-								)
-								.map(([key, d]) => (
-									<Slider
-										key={key}
-										label={d.label}
-										value={state.image[key as keyof EditorState["image"]]}
-										min={d.min}
-										max={d.max}
-										step={d.step}
-										onChange={(v) => setImg(key as keyof EditorState["image"], v)}
-									/>
-								))}
-						</Section>
+			<Section title={t("editor.imageControls")}>
+				{Object.entries(IMAGE_CONTROL_REGISTRY)
+					.filter(([key]) =>
+						state.textFill
+							? ["scale", "rotation", "opacity"].includes(key)
+							: true,
+					)
+					.map(([key, d]) => (
+						<Slider
+							key={key}
+							label={d.label}
+							value={state.image[key as keyof EditorState["image"]]}
+							min={d.min}
+							max={d.max}
+							step={d.step}
+							onChange={(v) => setImg(key as keyof EditorState["image"], v)}
+						/>
+					))}
+			</Section>
 
 			<button
 				type="button"

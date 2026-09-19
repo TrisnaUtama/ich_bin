@@ -39,7 +39,8 @@ export const de: Dictionary = {
 		textFill: {
 			tag: "Photoshop",
 			title: "Liquid-Blur-Effekt",
-			description: "Verschmelze ein Porträt mit fließenden Gradienten-Lichtstreifen.",
+			description:
+				"Verschmelze ein Porträt mit fließenden Gradienten-Lichtstreifen.",
 		},
 		destroyedAction: {
 			tag: "Fotoeffekt",
@@ -56,17 +57,20 @@ export const de: Dictionary = {
 		filmGrainDrip: {
 			tag: "Textur",
 			title: "Filmkorn & Tropfen",
-			description: "Lege analoges Korn und Tintentropfen über Porträt-Nahaufnahmen.",
+			description:
+				"Lege analoges Korn und Tintentropfen über Porträt-Nahaufnahmen.",
 		},
 		riso: {
 			tag: "Druck",
 			title: "Riso-Zine-Druck",
-			description: "Zweifarbige Risografie-Druckoptik mit handgezeichneten Overlays.",
+			description:
+				"Zweifarbige Risografie-Druckoptik mit handgezeichneten Overlays.",
 		},
 		duotoneSunset: {
 			tag: "Duotone",
 			title: "Duotone Sonnenuntergang",
-			description: "Warme Duotone-Abstufung inspiriert von Golden-Hour-Silhouetten.",
+			description:
+				"Warme Duotone-Abstufung inspiriert von Golden-Hour-Silhouetten.",
 		},
 	},
 	auth: {

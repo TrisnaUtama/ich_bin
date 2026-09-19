@@ -72,7 +72,7 @@ const indexContent = await Bun.file(indexPath).text();
 const exportLine = `export * from "./${fileName}";`;
 
 if (!indexContent.includes(exportLine)) {
-	const updated = indexContent.trimEnd() + `\n${exportLine}\n`;
+	const updated = `${indexContent.trimEnd()}\n${exportLine}\n`;
 	await Bun.write(indexPath, updated);
 	console.log(`✓ added export to src/schema/index.ts`);
 }

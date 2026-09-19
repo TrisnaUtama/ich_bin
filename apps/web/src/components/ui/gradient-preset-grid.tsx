@@ -1,4 +1,8 @@
-import { GRADIENT_PRESETS, type GradientPreset, gradientPresetToCss } from "#/lib/gradient-presets";
+import {
+	GRADIENT_PRESETS,
+	type GradientPreset,
+	gradientPresetToCss,
+} from "#/lib/gradient-presets";
 import { cn } from "#/lib/utils/cn";
 
 export function GradientPresetGrid({

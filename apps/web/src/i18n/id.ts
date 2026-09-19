@@ -56,12 +56,14 @@ export const id: Dictionary = {
 		filmGrainDrip: {
 			tag: "Tekstur",
 			title: "Grain Film & Tetesan",
-			description: "Lapisi grain analog dan tetesan tinta di atas close-up potret.",
+			description:
+				"Lapisi grain analog dan tetesan tinta di atas close-up potret.",
 		},
 		riso: {
 			tag: "Cetak",
 			title: "Cetak Zine Riso",
-			description: "Treatment cetak risograf dua warna dengan overlay gambar tangan.",
+			description:
+				"Treatment cetak risograf dua warna dengan overlay gambar tangan.",
 		},
 		duotoneSunset: {
 			tag: "Duotone",

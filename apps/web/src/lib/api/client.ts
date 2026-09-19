@@ -26,7 +26,12 @@ export class ApiError extends Error {
 	code: string;
 	details?: unknown;
 
-	constructor(status: number, code: string, message: string, details?: unknown) {
+	constructor(
+		status: number,
+		code: string,
+		message: string,
+		details?: unknown,
+	) {
 		super(message);
 		this.name = "ApiError";
 		this.status = status;
@@ -58,7 +63,10 @@ export function registerRefreshHandler(handler: RefreshHandler) {
 
 let refreshInFlight: Promise<void> | null = null;
 
-async function runRequest<T>(path: string, options: RequestOptions): Promise<T> {
+async function runRequest<T>(
+	path: string,
+	options: RequestOptions,
+): Promise<T> {
 	const { body, auth = true, skipRefreshRetry, headers, ...rest } = options;
 
 	const finalHeaders = new Headers(headers);

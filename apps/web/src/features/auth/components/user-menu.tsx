@@ -24,7 +24,8 @@ export function UserMenu({ className }: { className?: string }) {
 	useEffect(() => {
 		if (!open) return;
 		const onClick = (e: MouseEvent) => {
-			if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
+			if (rootRef.current && !rootRef.current.contains(e.target as Node))
+				setOpen(false);
 		};
 		document.addEventListener("mousedown", onClick);
 		return () => document.removeEventListener("mousedown", onClick);
@@ -77,9 +78,12 @@ export function UserMenu({ className }: { className?: string }) {
 							</div>
 
 							<div className="flex items-center justify-between px-4 py-3 text-sm">
-								<span className="text-white/55">{t("account.creditBalance")}</span>
+								<span className="text-white/55">
+									{t("account.creditBalance")}
+								</span>
 								<span className="font-semibold text-white">
-									{user.creditBalance} <span className="text-white/45">{t("account.credits")}</span>
+									{user.creditBalance}{" "}
+									<span className="text-white/45">{t("account.credits")}</span>
 								</span>
 							</div>
 

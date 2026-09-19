@@ -3,7 +3,10 @@ import { AppError, ErrorCode } from "../../errors";
 import { generateRefreshToken, hashToken } from "../../lib/crypto";
 import { verifyGoogleIdToken } from "../../lib/google";
 import { signAccessToken } from "../../lib/jwt";
-import { authRepository as defaultAuthRepository, type AuthRepository } from "./auth.repository";
+import {
+	type AuthRepository,
+	authRepository as defaultAuthRepository,
+} from "./auth.repository";
 import type { RequestMeta, TokenPair } from "./auth.types";
 
 export class AuthService {
@@ -95,18 +98,15 @@ export class AuthService {
 		meta: RequestMeta,
 	): Promise<TokenPair> {
 		const tokenHash = await hashToken(rawToken);
-		const existing = await this.authRepository.findRefreshTokenByHash(
-			tokenHash,
-		);
+		const existing =
+			await this.authRepository.findRefreshTokenByHash(tokenHash);
 
 		if (!existing) {
 			throw new AppError(401, ErrorCode.AUTH_INVALID_REFRESH_TOKEN);
 		}
 
 		if (existing.revokedAt) {
-			await this.authRepository.revokeAllRefreshTokensForUser(
-				existing.userId,
-			);
+			await this.authRepository.revokeAllRefreshTokensForUser(existing.userId);
 			throw new AppError(401, ErrorCode.AUTH_REFRESH_TOKEN_REUSED);
 		}
 
@@ -116,9 +116,8 @@ export class AuthService {
 
 		const newPair = await this.issueTokenPair(existing.userId, meta);
 		const newTokenHash = await hashToken(newPair.refreshToken);
-		const newRow = await this.authRepository.findRefreshTokenByHash(
-			newTokenHash,
-		);
+		const newRow =
+			await this.authRepository.findRefreshTokenByHash(newTokenHash);
 
 		await this.authRepository.revokeRefreshTokenById(existing.id, newRow?.id);
 
@@ -127,9 +126,8 @@ export class AuthService {
 
 	async revokeRefreshToken(rawToken: string): Promise<void> {
 		const tokenHash = await hashToken(rawToken);
-		const existing = await this.authRepository.findRefreshTokenByHash(
-			tokenHash,
-		);
+		const existing =
+			await this.authRepository.findRefreshTokenByHash(tokenHash);
 		if (existing) {
 			await this.authRepository.revokeRefreshTokenById(existing.id);
 		}

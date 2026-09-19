@@ -419,7 +419,7 @@ function buildRepeatedText(
 	const charsPerLine = Math.ceil(w / (size * 0.55));
 	const lines = Math.ceil(h / Math.max(lineHeight, 1)) + 2;
 	const totalChars = charsPerLine * lines;
-	const unit = text.trim() + " ";
+	const unit = `${text.trim()} `;
 	const repeatCount = Math.max(1, Math.ceil(totalChars / unit.length));
 	return unit.repeat(repeatCount);
 }

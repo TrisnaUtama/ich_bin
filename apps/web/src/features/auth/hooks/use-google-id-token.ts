@@ -81,10 +81,7 @@ export function useGoogleIdToken() {
 			pendingResolveRef.current = resolve;
 
 			window.google.accounts.id.prompt((notification) => {
-				if (
-					notification.isNotDisplayed() ||
-					notification.isSkippedMoment()
-				) {
+				if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
 					pendingResolveRef.current = null;
 					reject(
 						new Error(

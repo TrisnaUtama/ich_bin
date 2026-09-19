@@ -76,7 +76,11 @@ export function ColorField(props: {
 			<span className="text-xs text-white/45">{props.label}</span>
 			<div className="flex items-center gap-2">
 				<span className="text-xs uppercase text-white/70">{props.value}</span>
-				<ColorPicker label={props.label} value={props.value} onChange={props.onChange} />
+				<ColorPicker
+					label={props.label}
+					value={props.value}
+					onChange={props.onChange}
+				/>
 			</div>
 		</div>
 	);

@@ -33,7 +33,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 				<GlobeIcon className="size-4" />
 				{LOCALE_LABELS[locale]}
 				<ChevronDownIcon
-					className={cn("size-3.5 transition-transform duration-200", open && "rotate-180")}
+					className={cn(
+						"size-3.5 transition-transform duration-200",
+						open && "rotate-180",
+					)}
 				/>
 			</button>
 

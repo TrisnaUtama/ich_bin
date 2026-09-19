@@ -27,7 +27,8 @@ export function hexToRgb(hex: string): RGB {
 }
 
 export function rgbToHex({ r, g, b }: RGB): string {
-	const toHex = (n: number) => clamp(Math.round(n), 0, 255).toString(16).padStart(2, "0");
+	const toHex = (n: number) =>
+		clamp(Math.round(n), 0, 255).toString(16).padStart(2, "0");
 	return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 

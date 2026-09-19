@@ -59,7 +59,8 @@ export const en = {
 		riso: {
 			tag: "Print",
 			title: "Riso Zine Print",
-			description: "Two-tone risograph print treatment with hand-drawn overlays.",
+			description:
+				"Two-tone risograph print treatment with hand-drawn overlays.",
 		},
 		duotoneSunset: {
 			tag: "Duotone",

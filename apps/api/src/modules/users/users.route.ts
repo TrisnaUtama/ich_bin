@@ -22,7 +22,10 @@ const meRoute = createRoute({
 			description: "The current user's profile",
 			content: {
 				"application/json": {
-					schema: successResponseSchema(meResponseSchema, "UserProfileResponse"),
+					schema: successResponseSchema(
+						meResponseSchema,
+						"UserProfileResponse",
+					),
 				},
 			},
 		},

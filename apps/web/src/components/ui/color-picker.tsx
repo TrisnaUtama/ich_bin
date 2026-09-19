@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
 	hexToHsv,
 	hsvToHex,
@@ -32,7 +32,11 @@ export const SWATCH_PRESETS = [
 	"#0e0e11",
 ] as const;
 
-function useOutsideClick(ref: React.RefObject<HTMLElement | null>, onOutside: () => void, active: boolean) {
+function useOutsideClick(
+	ref: React.RefObject<HTMLElement | null>,
+	onOutside: () => void,
+	active: boolean,
+) {
 	useEffect(() => {
 		if (!active) return;
 		const onClick = (e: MouseEvent) => {
@@ -68,22 +72,28 @@ export function ColorPicker({
 		setHexDraft(safeValue);
 	}, [safeValue]);
 
-	const applyFromSv = (clientX: number, clientY: number) => {
-		const el = svRef.current;
-		if (!el) return;
-		const rect = el.getBoundingClientRect();
-		const x = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
-		const y = Math.min(1, Math.max(0, (clientY - rect.top) / rect.height));
-		onChange(hsvToHex({ h: hsv.h, s: x, v: 1 - y }));
-	};
+	const applyFromSv = useCallback(
+		(clientX: number, clientY: number) => {
+			const el = svRef.current;
+			if (!el) return;
+			const rect = el.getBoundingClientRect();
+			const x = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+			const y = Math.min(1, Math.max(0, (clientY - rect.top) / rect.height));
+			onChange(hsvToHex({ h: hsv.h, s: x, v: 1 - y }));
+		},
+		[hsv.h, onChange],
+	);
 
-	const applyFromHue = (clientX: number) => {
-		const el = hueRef.current;
-		if (!el) return;
-		const rect = el.getBoundingClientRect();
-		const x = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
-		onChange(hsvToHex({ h: x * 360, s: hsv.s, v: hsv.v }));
-	};
+	const applyFromHue = useCallback(
+		(clientX: number) => {
+			const el = hueRef.current;
+			if (!el) return;
+			const rect = el.getBoundingClientRect();
+			const x = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+			onChange(hsvToHex({ h: x * 360, s: hsv.s, v: hsv.v }));
+		},
+		[hsv.s, hsv.v, onChange],
+	);
 
 	useEffect(() => {
 		if (!open) return;
@@ -100,8 +110,7 @@ export function ColorPicker({
 			window.removeEventListener("mousemove", onMove);
 			window.removeEventListener("mouseup", onUp);
 		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [open, hsv.h, hsv.s, hsv.v]);
+	}, [open, applyFromSv, applyFromHue]);
 
 	const commitHex = (raw: string) => {
 		setHexDraft(raw);
@@ -127,14 +136,58 @@ export function ColorPicker({
 						animate={{ opacity: 1, y: 0, scale: 1 }}
 						exit={{ opacity: 0, y: -8, scale: 0.96 }}
 						transition={{ duration: 0.15, ease: "easeOut" }}
-						className="absolute right-0 top-[calc(100%+8px)] z-[70] w-64 rounded-2xl bg-ink-900/95 p-3.5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/15 backdrop-blur-xl"
+						className="absolute right-0 top-[calc(100%+8px)] z-70 w-64 rounded-2xl bg-ink-900/95 p-3.5 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/15 backdrop-blur-xl"
 					>
 						{/* Saturation / Value field */}
 						<div
 							ref={svRef}
+							role="slider"
+							tabIndex={0}
+							aria-label="Saturation and brightness"
+							aria-valuenow={Math.round(hsv.s * 100)}
+							aria-valuemin={0}
+							aria-valuemax={100}
+							aria-valuetext={`saturation ${Math.round(hsv.s * 100)}%, brightness ${Math.round(hsv.v * 100)}%`}
 							onMouseDown={(e) => {
 								draggingRef.current = "sv";
 								applyFromSv(e.clientX, e.clientY);
+							}}
+							onKeyDown={(e) => {
+								const step = e.shiftKey ? 0.1 : 0.02;
+								if (e.key === "ArrowRight")
+									onChange(
+										hsvToHex({
+											h: hsv.h,
+											s: Math.min(1, hsv.s + step),
+											v: hsv.v,
+										}),
+									);
+								else if (e.key === "ArrowLeft")
+									onChange(
+										hsvToHex({
+											h: hsv.h,
+											s: Math.max(0, hsv.s - step),
+											v: hsv.v,
+										}),
+									);
+								else if (e.key === "ArrowUp")
+									onChange(
+										hsvToHex({
+											h: hsv.h,
+											s: hsv.s,
+											v: Math.min(1, hsv.v + step),
+										}),
+									);
+								else if (e.key === "ArrowDown")
+									onChange(
+										hsvToHex({
+											h: hsv.h,
+											s: hsv.s,
+											v: Math.max(0, hsv.v - step),
+										}),
+									);
+								else return;
+								e.preventDefault();
 							}}
 							className="relative h-32 w-full cursor-crosshair overflow-hidden rounded-xl"
 							style={{
@@ -155,9 +208,36 @@ export function ColorPicker({
 						{/* Hue slider */}
 						<div
 							ref={hueRef}
+							role="slider"
+							tabIndex={0}
+							aria-label="Hue"
+							aria-valuenow={Math.round(hsv.h)}
+							aria-valuemin={0}
+							aria-valuemax={360}
 							onMouseDown={(e) => {
 								draggingRef.current = "hue";
 								applyFromHue(e.clientX);
+							}}
+							onKeyDown={(e) => {
+								const step = e.shiftKey ? 10 : 2;
+								if (e.key === "ArrowRight" || e.key === "ArrowUp") {
+									onChange(
+										hsvToHex({
+											h: Math.min(360, hsv.h + step),
+											s: hsv.s,
+											v: hsv.v,
+										}),
+									);
+								} else if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
+									onChange(
+										hsvToHex({
+											h: Math.max(0, hsv.h - step),
+											s: hsv.s,
+											v: hsv.v,
+										}),
+									);
+								} else return;
+								e.preventDefault();
 							}}
 							className="relative mt-3 h-3 w-full cursor-pointer rounded-full"
 							style={{
@@ -175,7 +255,10 @@ export function ColorPicker({
 						<div className="mt-3 flex items-center gap-2">
 							<span
 								className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/15 text-[10px] font-semibold"
-								style={{ backgroundColor: safeValue, color: readableTextColor(safeValue) }}
+								style={{
+									backgroundColor: safeValue,
+									color: readableTextColor(safeValue),
+								}}
 							>
 								#
 							</span>

@@ -4,3 +4,6 @@ id: api
 tasks:
   dev:
     command: bun --watch index.ts
+
+  build:
+    command: bun build index.ts --outdir dist --target bun

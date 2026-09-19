@@ -12,7 +12,11 @@ every environment, see `apps/web/src/lib/env.ts`).
    testing/development deploy target. `main` is production.
 2. **Repo secrets** (Settings → Secrets and variables → Actions →
    Secrets):
-   - `DEPLOY_HOST` — the homelab server's address.
+   - `DEPLOY_HOST` — the homelab server's address. **If the server has
+     no public IP and is only reachable over Tailscale**, use its
+     Tailscale IP (`100.x.x.x`) or, better, its MagicDNS name (e.g.
+     `homelab.your-tailnet.ts.net` — stays stable even if the IP
+     rotates). Find either in the Tailscale admin console → Machines.
    - `DEPLOY_USER` — SSH user (needs `docker` group membership, no sudo
      needed for `docker` commands).
    - `DEPLOY_SSH_KEY` — private key for that user. Generate a dedicated
@@ -21,6 +25,27 @@ every environment, see `apps/web/src/lib/env.ts`).
      paste the private half here.
    No GHCR credentials needed — the workflow authenticates with the
    automatic `GITHUB_TOKEN`.
+
+   **Tailscale-only server** — GitHub's hosted runners aren't on your
+   tailnet, so the workflow has the runner join it for the duration of
+   the deploy job (`tailscale/github-action`, already wired into
+   `.github/workflows/ci-cd.yaml`) before it SSHes in. That needs one
+   more secret:
+   - `TAILSCALE_AUTHKEY` — from your Tailscale admin console → Settings
+     → Keys → "Generate auth key...". Tick **Reusable** (the workflow
+     runs many times) and **Ephemeral** (the CI node removes itself
+     from your machine list automatically once the job finishes, so
+     nothing lingers there). Set an expiry you're comfortable with
+     (90 days is the max on the Free plan — you'll need to regenerate
+     and update the secret when it expires). Paste the generated key
+     (`tskey-auth-...`) into the secret.
+   - (OAuth clients — a scoped, non-expiring alternative to auth keys —
+     aren't available on the Free plan's Keys page; a plain reusable +
+     ephemeral auth key does the same job here.)
+   - Nothing else to configure on the Tailscale side: the default ACL
+     policy already lets every tailnet member reach each other, which
+     covers the CI node SSHing to the server on port 22. Only relevant
+     if you've locked your ACLs down further than the default.
 3. **Repo variables** (same page, "Variables" tab) — optional, only
    needed if your deploy folders aren't at the default paths below:
    - `STAGING_DEPLOY_PATH` (default `/var/www/kinnetics-staging`)

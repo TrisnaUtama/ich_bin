@@ -1,10 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import {
-	ArrowUpRightIcon,
-	CloseIcon,
-} from "#/components/ui/icons";
+import { ArrowUpRightIcon, CloseIcon } from "#/components/ui/icons";
 import { useTranslation } from "#/i18n/useTranslation";
 import { cn } from "#/lib/utils/cn";
 import { useAuthStore } from "#/stores/auth-store";
@@ -56,14 +53,14 @@ export function AccountSheet({
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.2 }}
 						onClick={onClose}
-						className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm"
+						className="fixed inset-0 z-100 bg-black/60 backdrop-blur-sm"
 					/>
 					<motion.aside
 						initial={{ x: "100%" }}
 						animate={{ x: 0 }}
 						exit={{ x: "100%" }}
 						transition={{ type: "spring", stiffness: 320, damping: 34 }}
-						className="fixed inset-y-0 right-0 z-[101] flex w-full max-w-md flex-col bg-ink-950 shadow-[0_0_80px_rgba(0,0,0,0.6)] ring-1 ring-inset ring-white/10 sm:max-w-sm"
+						className="fixed inset-y-0 right-0 z-101 flex w-full max-w-md flex-col bg-ink-950 shadow-[0_0_80px_rgba(0,0,0,0.6)] ring-1 ring-inset ring-white/10 sm:max-w-sm"
 					>
 						{/* Header */}
 						<div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
@@ -200,14 +197,17 @@ export function AccountSheet({
 									<p className="mt-1.5 max-w-xs text-xs text-white/50">
 										{t("account.purchasedTemplatesEmpty")}
 									</p>
-									<a
-										href="/#templates"
-										onClick={onClose}
-										className="mt-4 inline-flex items-center gap-1 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-white/20"
+									<button
+										type="button"
+										onClick={() => {
+											onClose();
+											window.location.hash = "templates";
+										}}
+										className="..."
 									>
 										{t("account.browseTemplates")}
 										<ArrowUpRightIcon className="size-3.5" />
-									</a>
+									</button>
 								</div>
 							)}
 

@@ -40,13 +40,13 @@ export type ErrorResponseBody = {
  * route's declared schemas and the whole handler fails to type-check.
  * Keeping `status` generic preserves whatever literal the caller passes.
  */
-export class ApiResponse {
-	private static resolveLocale(c: Context<AppEnv>): Locale {
-		return c.get("locale") ?? "en";
-	}
+function resolveLocale(c: Context<AppEnv>): Locale {
+	return c.get("locale") ?? "en";
+}
 
+export const ApiResponse = {
 	/** 2xx (or any content-bearing) response carrying data, with a translated, machine-readable message code. */
-	static success<T, S extends ContentfulStatusCode = 200>(
+	success<T, S extends ContentfulStatusCode = 200>(
 		c: Context<AppEnv>,
 		messageCode: MessageCode,
 		data: T,
@@ -54,19 +54,19 @@ export class ApiResponse {
 	) {
 		const body: SuccessResponseBody<T> = {
 			success: true,
-			message: translate(messageCode, ApiResponse.resolveLocale(c)),
+			message: translate(messageCode, resolveLocale(c)),
 			data,
 		};
 		return c.json(body, status);
-	}
+	},
 
 	/** Response with no body (e.g. 204 after logout). */
-	static noContent<S extends ContentlessStatusCode = 204>(
+	noContent<S extends ContentlessStatusCode = 204>(
 		c: Context<AppEnv>,
 		status: S = 204 as S,
 	) {
 		return c.body(null, status);
-	}
+	},
 
 	/**
 	 * Formats an AppError into the standard error envelope, translated for
@@ -76,15 +76,15 @@ export class ApiResponse {
 	 * response schemas the way success()/noContent() are, so error.status
 	 * doesn't need the same literal-preserving generic treatment.
 	 */
-	static error(c: Context<AppEnv>, error: AppError) {
+	error(c: Context<AppEnv>, error: AppError) {
 		const body: ErrorResponseBody = {
 			success: false,
 			error: {
 				code: error.code,
-				message: translate(error.code, ApiResponse.resolveLocale(c)),
+				message: translate(error.code, resolveLocale(c)),
 				...(error.details !== undefined ? { details: error.details } : {}),
 			},
 		};
 		return c.json(body, error.status);
-	}
-}
+	},
+};

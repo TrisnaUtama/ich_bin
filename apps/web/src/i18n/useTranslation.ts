@@ -1,13 +1,15 @@
 import { useMemo } from "react";
 import { useLocaleStore } from "#/stores/locale-store";
-import { dictionaries, type Dictionary } from "./index";
+import { type Dictionary, dictionaries } from "./index";
 
 function get(obj: unknown, path: string): unknown {
 	return path
 		.split(".")
 		.reduce<unknown>(
 			(acc, key) =>
-				acc && typeof acc === "object" ? (acc as Record<string, unknown>)[key] : undefined,
+				acc && typeof acc === "object"
+					? (acc as Record<string, unknown>)[key]
+					: undefined,
 			obj,
 		);
 }

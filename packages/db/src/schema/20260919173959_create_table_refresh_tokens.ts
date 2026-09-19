@@ -1,4 +1,10 @@
-import { type AnyPgColumn, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import {
+	type AnyPgColumn,
+	pgTable,
+	text,
+	timestamp,
+	uuid,
+} from "drizzle-orm/pg-core";
 import { users } from "./20260919171202_create_table_users";
 
 // selfReference is needed because a refresh token can point to the token

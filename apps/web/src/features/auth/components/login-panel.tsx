@@ -62,9 +62,7 @@ export function LoginPanel() {
 						disabled={isLoading}
 						label={isLoading ? "Signing in..." : "Continue with Google"}
 					/>
-					{error && (
-						<p className="mt-3 text-[13px] text-red-400">{error}</p>
-					)}
+					{error && <p className="mt-3 text-[13px] text-red-400">{error}</p>}
 				</motion.div>
 
 				<motion.p variants={fadeUp} className="mt-5 text-[12px] text-white/35">

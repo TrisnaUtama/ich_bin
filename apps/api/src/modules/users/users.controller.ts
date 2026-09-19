@@ -2,7 +2,10 @@ import type { Context } from "hono";
 import { SuccessCode } from "../../i18n";
 import { ApiResponse } from "../../lib/api-response";
 import type { AppEnv } from "../../lib/hono-env";
-import { usersService as defaultUsersService, type UsersService } from "./users.service";
+import {
+	usersService as defaultUsersService,
+	type UsersService,
+} from "./users.service";
 
 export class UsersController {
 	constructor(

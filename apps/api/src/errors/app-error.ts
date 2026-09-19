@@ -20,7 +20,11 @@ export class AppError extends Error {
 	/** Extra structured info for the client — e.g. which fields failed validation. Never put sensitive data here. */
 	details?: unknown;
 
-	constructor(status: ContentfulStatusCode, code: ErrorCodeValue, details?: unknown) {
+	constructor(
+		status: ContentfulStatusCode,
+		code: ErrorCodeValue,
+		details?: unknown,
+	) {
 		super(code);
 		this.name = "AppError";
 		this.status = status;

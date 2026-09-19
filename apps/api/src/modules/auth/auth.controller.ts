@@ -1,13 +1,14 @@
 import type { Context } from "hono";
+import { SuccessCode } from "../../i18n";
 import { ApiResponse } from "../../lib/api-response";
 import type { AppEnv } from "../../lib/hono-env";
-import { SuccessCode } from "../../i18n";
-import { authService as defaultAuthService, type AuthService } from "./auth.service";
+import {
+	type AuthService,
+	authService as defaultAuthService,
+} from "./auth.service";
 
 export class AuthController {
-	constructor(
-		private readonly authService: AuthService = defaultAuthService,
-	) {}
+	constructor(private readonly authService: AuthService = defaultAuthService) {}
 
 	private requestMeta(c: Context<AppEnv>) {
 		return {

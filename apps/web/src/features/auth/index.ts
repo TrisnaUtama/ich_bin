@@ -1,5 +1,5 @@
-export { authApi } from "./api/auth.api";
 export type { TokenPair } from "./api/auth.api";
+export { authApi } from "./api/auth.api";
 export { registerAuthRefreshHandler } from "./bootstrap";
 export { AccountSheet } from "./components/account-sheet";
 export { AuthShowcase } from "./components/auth-showcase";
