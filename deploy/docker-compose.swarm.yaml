@@ -1,10 +1,5 @@
 version: '3.8'
 
-# Deployed with: docker stack deploy -c docker-compose.swarm.yaml <stack-name>
-# (see Makefile). IMAGE_API / IMAGE_WEB / TAG are substituted from the
-# shell env (the Makefile exports them) or a .env file sitting next to
-# this compose file on the server.
-
 services:
   api:
     image: ${IMAGE_API}:${TAG:-latest}
