@@ -4,12 +4,12 @@ import { duotone } from "./duotone";
 import { glitch } from "./glitch";
 import { grain } from "./grain";
 import { halftone } from "./halftone";
-import { pixelStretch } from "./pixelStretch";
 import { pixelate } from "./pixelate";
+import { pixelStretch } from "./pixelStretch";
 import { posterize } from "./posterize";
+import type { EffectModule, ParamDescriptor } from "./types";
 import { vignette } from "./vignette";
 import { waveDistortion } from "./waveDistortion";
-import type { EffectModule, ParamDescriptor } from "./types";
 
 export const EFFECTS: Record<string, EffectModule> = {
 	pixelStretch,

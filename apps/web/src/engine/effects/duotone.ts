@@ -89,12 +89,12 @@ export const duotone: EffectModule = {
 	apply(f, p) {
 		const u = uni(f, "duotoneUniforms");
 		const presets: [number, number, number, number, number, number][] = [
-			[0.05, 0.05, 0.2, 0.95, 0.85, 0.6],   // Midnight Blue
-			[0.4, 0.1, 0.05, 1.0, 0.85, 0.3],       // Sunset
-			[0.15, 0.0, 0.2, 1.0, 0.3, 0.7],         // Neon Pink
-			[0.02, 0.1, 0.05, 0.6, 0.95, 0.4],       // Forest
-			[0.2, 0.12, 0.05, 0.95, 0.85, 0.65],     // Sepia
-			[0.0, 0.05, 0.15, 0.0, 0.95, 1.0],       // Cyberpunk
+			[0.05, 0.05, 0.2, 0.95, 0.85, 0.6], // Midnight Blue
+			[0.4, 0.1, 0.05, 1.0, 0.85, 0.3], // Sunset
+			[0.15, 0.0, 0.2, 1.0, 0.3, 0.7], // Neon Pink
+			[0.02, 0.1, 0.05, 0.6, 0.95, 0.4], // Forest
+			[0.2, 0.12, 0.05, 0.95, 0.85, 0.65], // Sepia
+			[0.0, 0.05, 0.15, 0.0, 0.95, 1.0], // Cyberpunk
 		];
 		const idx = Math.min(Math.floor(p.preset ?? 0), presets.length - 1);
 		const [dr, dg, db, lr, lg, lb] = presets[idx];
