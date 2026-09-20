@@ -1,0 +1,85 @@
+{
+	"id": "neon-glow",
+	"name": "Neon Glow",
+	"version": 1,
+	"aspectRatios": ["1:1"],
+	"fonts": ["Impact", "Arial", "Courier New"],
+	"canvas": {
+		"width": 1080,
+		"height": 1080,
+		"background": {
+			"kind": "gradient",
+			"color": "#050510",
+			"opacity": 1,
+			"gradient": {
+				"type": "linear",
+				"angle": 135,
+				"stops": [
+					{ "color": "#050510", "position": 0 },
+					{ "color": "#0a0520", "position": 0.5 },
+					{ "color": "#050510", "position": 1 }
+				]
+			}
+		}
+	},
+	"layers": [
+		{
+			"type": "image",
+			"slot": "photo",
+			"fit": "cover",
+			"controls": {
+				"exposure": -10,
+				"contrast": 40,
+				"saturation": 30,
+				"temperature": -20,
+				"tint": 0,
+				"highlights": 25,
+				"shadows": -30,
+				"opacity": 100,
+				"scale": 100,
+				"rotation": 0
+			},
+			"effects": [
+				{
+					"id": "chromatic-neon",
+					"type": "chromaticAberration",
+					"offset": 20,
+					"angle": 90,
+					"falloff": 40
+				},
+				{
+					"id": "vignette-dark",
+					"type": "vignette",
+					"radius": 65,
+					"softness": 50,
+					"darkness": 80
+				}
+			]
+		},
+		{
+			"type": "text",
+			"slot": "heading",
+			"label": "Title",
+			"default": "NEON",
+			"font": "Impact",
+			"size": 180,
+			"letterSpacing": 4,
+			"color": "#ff00ff",
+			"x": 60,
+			"y": 800,
+			"weight": "bold"
+		},
+		{
+			"type": "text",
+			"slot": "subtitle",
+			"label": "Subtitle",
+			"default": "LIGHTS // CITY // NIGHTS",
+			"font": "Courier New",
+			"size": 22,
+			"letterSpacing": 6,
+			"color": "#00ffff",
+			"x": 64,
+			"y": 1000
+		}
+	]
+}

@@ -1,0 +1,89 @@
+{
+	"id": "bold-split",
+	"name": "Bold Split",
+	"version": 1,
+	"aspectRatios": ["4:5"],
+	"fonts": ["Impact", "Arial", "Courier New"],
+	"canvas": {
+		"width": 1080,
+		"height": 1350,
+		"background": {
+			"kind": "solid",
+			"color": "#ffffff",
+			"opacity": 1,
+			"gradient": {
+				"type": "linear",
+				"angle": 0,
+				"stops": [
+					{ "color": "#ffffff", "position": 0 },
+					{ "color": "#f0f0f0", "position": 1 }
+				]
+			}
+		}
+	},
+	"layers": [
+		{
+			"type": "image",
+			"slot": "photo",
+			"fit": "cover",
+			"controls": {
+				"exposure": 5,
+				"contrast": 35,
+				"saturation": -10,
+				"temperature": 0,
+				"tint": 0,
+				"highlights": 15,
+				"shadows": -10,
+				"opacity": 100,
+				"scale": 100,
+				"rotation": 0
+			},
+			"effects": [
+				{
+					"id": "stretch-split",
+					"type": "pixelStretch",
+					"stretchXLeft": 50,
+					"stretchXRight": 0,
+					"stretchAngle": 0,
+					"curveBend": 30,
+					"waveFrequency": 3.5,
+					"waveAmplitude": 25,
+					"intensity": 90,
+					"grain": 3
+				},
+				{
+					"id": "posterize-pop",
+					"type": "posterize",
+					"levels": 8,
+					"gamma": 110,
+					"intensity": 60
+				}
+			]
+		},
+		{
+			"type": "text",
+			"slot": "heading",
+			"label": "Title",
+			"default": "BOLD",
+			"font": "Impact",
+			"size": 200,
+			"letterSpacing": 0,
+			"color": "#000000",
+			"x": 60,
+			"y": 1020,
+			"weight": "bold"
+		},
+		{
+			"type": "text",
+			"slot": "subtitle",
+			"label": "Caption",
+			"default": "MAKE A STATEMENT",
+			"font": "Arial",
+			"size": 26,
+			"letterSpacing": 8,
+			"color": "#444444",
+			"x": 64,
+			"y": 1250
+		}
+	]
+}

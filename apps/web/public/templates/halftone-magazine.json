@@ -1,0 +1,86 @@
+{
+	"id": "halftone-magazine",
+	"name": "Halftone Magazine",
+	"version": 1,
+	"aspectRatios": ["1:1"],
+	"fonts": ["Impact", "Arial", "Courier New", "Georgia"],
+	"canvas": {
+		"width": 1080,
+		"height": 1080,
+		"background": {
+			"kind": "solid",
+			"color": "#f5f0e8",
+			"opacity": 1,
+			"gradient": {
+				"type": "linear",
+				"angle": 0,
+				"stops": [
+					{ "color": "#f5f0e8", "position": 0 },
+					{ "color": "#e8e0d0", "position": 1 }
+				]
+			}
+		}
+	},
+	"layers": [
+		{
+			"type": "image",
+			"slot": "photo",
+			"fit": "cover",
+			"controls": {
+				"exposure": 5,
+				"contrast": 40,
+				"saturation": -60,
+				"temperature": 10,
+				"tint": 0,
+				"highlights": 20,
+				"shadows": -15,
+				"opacity": 100,
+				"scale": 100,
+				"rotation": 0
+			},
+			"effects": [
+				{
+					"id": "halftone-main",
+					"type": "halftone",
+					"scale": 25,
+					"angle": 45,
+					"smooth": 40,
+					"shape": 0
+				},
+				{
+					"id": "grain-subtle",
+					"type": "grain",
+					"amount": 15,
+					"size": 40,
+					"speed": 30,
+					"colorNoise": 0
+				}
+			]
+		},
+		{
+			"type": "text",
+			"slot": "heading",
+			"label": "Magazine Title",
+			"default": "ZINE",
+			"font": "Impact",
+			"size": 200,
+			"letterSpacing": 0,
+			"color": "#1a1a1a",
+			"x": 60,
+			"y": 40,
+			"weight": "bold"
+		},
+		{
+			"type": "text",
+			"slot": "issue",
+			"label": "Issue Info",
+			"default": "ISSUE NO. 01 — 2025",
+			"font": "Courier New",
+			"size": 22,
+			"letterSpacing": 3,
+			"color": "#555555",
+			"x": 60,
+			"y": 1020
+		}
+	]
+}

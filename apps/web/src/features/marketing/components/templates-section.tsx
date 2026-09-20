@@ -86,10 +86,11 @@ function TemplateCard({
 export function TemplatesSection() {
 	const { t } = useTranslation();
 	const sectionRef = useRef<HTMLElement>(null);
-	const [row1, row2, row3] = [
+	const [row1, row2, row3, row4] = [
 		templatesShowcase.slice(0, 3),
-		templatesShowcase.slice(3, 5),
-		templatesShowcase.slice(5, 8),
+		templatesShowcase.slice(3, 6),
+		templatesShowcase.slice(6, 8),
+		templatesShowcase.slice(8, 11),
 	];
 
 	useGSAP(
@@ -140,10 +141,11 @@ export function TemplatesSection() {
 
 					<div
 						data-templates-reveal
-						className="grid grid-cols-1 gap-5 sm:grid-cols-12"
+						className="grid grid-cols-1 gap-5 sm:grid-cols-3"
 					>
-						<TemplateCard item={row2[0]} className="sm:col-span-5" />
-						<TemplateCard item={row2[1]} className="sm:col-span-7" />
+						{row2.map((item) => (
+							<TemplateCard key={item.key} item={item} />
+						))}
 					</div>
 
 					<div
@@ -151,6 +153,15 @@ export function TemplatesSection() {
 						className="grid grid-cols-1 gap-5 sm:grid-cols-3"
 					>
 						{row3.map((item) => (
+							<TemplateCard key={item.key} item={item} />
+						))}
+					</div>
+
+					<div
+						data-templates-reveal
+						className="grid grid-cols-1 gap-5 sm:grid-cols-3"
+					>
+						{row4.map((item) => (
 							<TemplateCard key={item.key} item={item} />
 						))}
 					</div>

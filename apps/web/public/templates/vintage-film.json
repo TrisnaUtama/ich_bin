@@ -1,0 +1,84 @@
+{
+	"id": "vintage-film",
+	"name": "Vintage Film",
+	"version": 1,
+	"aspectRatios": ["4:5"],
+	"fonts": ["Georgia", "Courier New", "Arial"],
+	"canvas": {
+		"width": 1080,
+		"height": 1350,
+		"background": {
+			"kind": "solid",
+			"color": "#1a1510",
+			"opacity": 1,
+			"gradient": {
+				"type": "linear",
+				"angle": 180,
+				"stops": [
+					{ "color": "#1a1510", "position": 0 },
+					{ "color": "#0d0a08", "position": 1 }
+				]
+			}
+		}
+	},
+	"layers": [
+		{
+			"type": "image",
+			"slot": "photo",
+			"fit": "cover",
+			"controls": {
+				"exposure": -5,
+				"contrast": 15,
+				"saturation": -40,
+				"temperature": 25,
+				"tint": 10,
+				"highlights": 5,
+				"shadows": -20,
+				"opacity": 100,
+				"scale": 100,
+				"rotation": 0
+			},
+			"effects": [
+				{
+					"id": "grain-film",
+					"type": "grain",
+					"amount": 40,
+					"size": 60,
+					"speed": 65,
+					"colorNoise": 0
+				},
+				{
+					"id": "vignette-heavy",
+					"type": "vignette",
+					"radius": 60,
+					"softness": 45,
+					"darkness": 70
+				}
+			]
+		},
+		{
+			"type": "text",
+			"slot": "heading",
+			"label": "Title",
+			"default": "NOSTALGIA",
+			"font": "Georgia",
+			"size": 80,
+			"letterSpacing": 16,
+			"color": "#d4c4a0",
+			"x": 60,
+			"y": 1120
+		},
+		{
+			"type": "text",
+			"slot": "date",
+			"label": "Date",
+			"default": "CIRCA 1972",
+			"font": "Courier New",
+			"size": 24,
+			"letterSpacing": 8,
+			"color": "#8a7a60",
+			"x": 64,
+			"y": 1230
+		}
+	]
+}

@@ -41,34 +41,53 @@ export const id: Dictionary = {
 			title: "Efek Blur Cair",
 			description: "Padukan potret dengan aliran cahaya gradasi yang mengalir.",
 		},
-		destroyedAction: {
-			tag: "Efek Foto",
-			title: "Aksi Photoshop Rusak",
+		glitchPoster: {
+			tag: "Glitch",
+			title: "Poster Glitch",
 			description:
-				"Glitch, geser, dan rusak gambar untuk tampilan digital yang distressed.",
+				"Distorsi glitch digital dengan pemisahan kanal RGB dan artefak scanline.",
 		},
-		chromaticBlur: {
-			tag: "Masked · Threshold",
-			title: "Motion Blur Kromatik",
-			description:
-				"Padukan blur kromatik dinamis dan gradasi aura di belakang subjek untuk estetika futuristik.",
-		},
-		filmGrainDrip: {
-			tag: "Tekstur",
-			title: "Grain Film & Tetesan",
-			description:
-				"Lapisi grain analog dan tetesan tinta di atas close-up potret.",
-		},
-		riso: {
-			tag: "Cetak",
-			title: "Cetak Zine Riso",
-			description:
-				"Treatment cetak risograf dua warna dengan overlay gambar tangan.",
-		},
-		duotoneSunset: {
+		duotonePortrait: {
 			tag: "Duotone",
-			title: "Duotone Senja",
-			description: "Grading duotone hangat terinspirasi siluet golden-hour.",
+			title: "Potret Duotone",
+			description:
+				"Petakan foto ke palet warna dua nada dengan kontras dan vignette yang dapat disesuaikan.",
+		},
+		halftoneMagazine: {
+			tag: "Cetak",
+			title: "Majalah Halftone",
+			description:
+				"Ubah foto menjadi pola titik halftone klasik untuk estetika cetak retro.",
+		},
+		vintageFilm: {
+			tag: "Film",
+			title: "Film Vintage",
+			description:
+				"Grain film analog dengan toning hangat dan vignette berat untuk tampilan nostalgia.",
+		},
+		neonGlow: {
+			tag: "Neon",
+			title: "Cahaya Neon",
+			description:
+				"Gambar gelap kontras tinggi dengan aberasi kromatik dan tipografi neon cerah.",
+		},
+		pixelMosaic: {
+			tag: "Retro",
+			title: "Mosaik Piksel",
+			description:
+				"Pikselasi dan posterisasi foto untuk estetika game retro 8-bit.",
+		},
+		waveDreams: {
+			tag: "Surreal",
+			title: "Mimpi Gelombang",
+			description:
+				"Distorsi gelombang fluid dengan pergeseran kromatik untuk komposisi mimpi dan surreal.",
+		},
+		boldSplit: {
+			tag: "Tegas",
+			title: "Belah Tegas",
+			description:
+				"Peregangan piksel dramatis dengan efek posterize untuk poster berdampak tinggi.",
 		},
 	},
 	auth: {

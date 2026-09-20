@@ -42,35 +42,53 @@ export const de: Dictionary = {
 			description:
 				"Verschmelze ein Porträt mit fließenden Gradienten-Lichtstreifen.",
 		},
-		destroyedAction: {
-			tag: "Fotoeffekt",
-			title: "Zerstörte Photoshop-Aktion",
+		glitchPoster: {
+			tag: "Glitch",
+			title: "Glitch-Poster",
 			description:
-				"Verzerre, verschiebe und beschädige ein Bild für einen verwitterten digitalen Look.",
+				"Digitale Glitch-Verzerrung mit RGB-Kanaltrennung und Scanline-Artefakten.",
 		},
-		chromaticBlur: {
-			tag: "Masked · Threshold",
-			title: "Chromatischer Bewegungsunschärfe",
-			description:
-				"Kombiniere dynamische chromatische Unschärfen und Aura-Gradienten hinter den Motiven für eine futuristische Ästhetik.",
-		},
-		filmGrainDrip: {
-			tag: "Textur",
-			title: "Filmkorn & Tropfen",
-			description:
-				"Lege analoges Korn und Tintentropfen über Porträt-Nahaufnahmen.",
-		},
-		riso: {
-			tag: "Druck",
-			title: "Riso-Zine-Druck",
-			description:
-				"Zweifarbige Risografie-Druckoptik mit handgezeichneten Overlays.",
-		},
-		duotoneSunset: {
+		duotonePortrait: {
 			tag: "Duotone",
-			title: "Duotone Sonnenuntergang",
+			title: "Duotone-Porträt",
 			description:
-				"Warme Duotone-Abstufung inspiriert von Golden-Hour-Silhouetten.",
+				"Ordnen Sie Ihr Foto einer Zwei-Ton-Farbpalette mit einstellbarem Kontrast und Vignette zu.",
+		},
+		halftoneMagazine: {
+			tag: "Druck",
+			title: "Halftone-Magazin",
+			description:
+				"Wandeln Sie Fotos in klassische Halbton-Punktmuster für eine Retro-Druck-Ästhetik um.",
+		},
+		vintageFilm: {
+			tag: "Film",
+			title: "Vintage-Film",
+			description:
+				"Analoges Filmkorn mit warmer Tonung und starker Vignette für einen nostalgischen Look.",
+		},
+		neonGlow: {
+			tag: "Neon",
+			title: "Neon-Glühen",
+			description:
+				"Kontrastreiche dunkle Bilder mit chromatischer Aberration und lebendiger Neon-Typografie.",
+		},
+		pixelMosaic: {
+			tag: "Retro",
+			title: "Pixel-Mosaik",
+			description:
+				"Pixelisieren und posterisieren Sie Ihr Foto für eine 8-Bit-Retro-Game-Ästhetik.",
+		},
+		waveDreams: {
+			tag: "Surreal",
+			title: "Wellenträume",
+			description:
+				"Fließende Wellenverzerrung mit chromatischen Verschiebungen für eine traumhafte, surreale Komposition.",
+		},
+		boldSplit: {
+			tag: "Fett",
+			title: "Fette Teilung",
+			description:
+				"Dramatische Pixeldehnung mit Posterize-Effekt für ein kühnes, wirkungsvolles Poster.",
 		},
 	},
 	auth: {

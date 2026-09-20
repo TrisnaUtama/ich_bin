@@ -1,0 +1,86 @@
+{
+	"id": "glitch-poster",
+	"name": "Glitch Poster",
+	"version": 1,
+	"aspectRatios": ["4:5"],
+	"fonts": ["Impact", "Arial", "Courier New"],
+	"canvas": {
+		"width": 1080,
+		"height": 1350,
+		"background": {
+			"kind": "solid",
+			"color": "#0a0a0f",
+			"opacity": 1,
+			"gradient": {
+				"type": "linear",
+				"angle": 180,
+				"stops": [
+					{ "color": "#0a0a0f", "position": 0 },
+					{ "color": "#1a0a2e", "position": 1 }
+				]
+			}
+		}
+	},
+	"layers": [
+		{
+			"type": "image",
+			"slot": "photo",
+			"fit": "cover",
+			"controls": {
+				"exposure": 5,
+				"contrast": 20,
+				"saturation": -30,
+				"temperature": 0,
+				"tint": 0,
+				"highlights": 10,
+				"shadows": -10,
+				"opacity": 100,
+				"scale": 100,
+				"rotation": 0
+			},
+			"effects": [
+				{
+					"id": "glitch-main",
+					"type": "glitch",
+					"intensity": 60,
+					"blockSize": 25,
+					"rgbShift": 40,
+					"scanlines": 30,
+					"seed": 42
+				},
+				{
+					"id": "chromatic-main",
+					"type": "chromaticAberration",
+					"offset": 35,
+					"angle": 0,
+					"falloff": 60
+				}
+			]
+		},
+		{
+			"type": "text",
+			"slot": "heading",
+			"label": "Title",
+			"default": "BROKEN",
+			"font": "Impact",
+			"size": 160,
+			"letterSpacing": 8,
+			"color": "#ffffff",
+			"x": 60,
+			"y": 1050,
+			"weight": "bold"
+		},
+		{
+			"type": "text",
+			"slot": "subtitle",
+			"label": "Subtitle",
+			"default": "DIGITAL ARTIFACTS // 2025",
+			"font": "Courier New",
+			"size": 24,
+			"letterSpacing": 4,
+			"color": "#00ffaa",
+			"x": 64,
+			"y": 1240
+		}
+	]
+}

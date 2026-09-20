@@ -31,7 +31,18 @@ export interface ImageControls {
 	rotation: number;
 }
 
-export type EffectType = "pixelStretch" | "blur";
+export type EffectType =
+	| "pixelStretch"
+	| "blur"
+	| "chromaticAberration"
+	| "glitch"
+	| "halftone"
+	| "duotone"
+	| "vignette"
+	| "grain"
+	| "pixelate"
+	| "waveDistortion"
+	| "posterize";
 
 export interface EffectDef {
 	id: string;
@@ -45,6 +56,7 @@ export interface EffectDef {
 	intensity?: number;
 	grain?: number;
 	strength?: number;
+	[key: string]: string | number | undefined;
 }
 
 export interface MaskText {

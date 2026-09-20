@@ -39,33 +39,53 @@ export const en = {
 			title: "Liquid Blur Effect",
 			description: "Blend a portrait into flowing gradient light streaks.",
 		},
-		destroyedAction: {
-			tag: "Photo Effect",
-			title: "Destroyed Photoshop Action",
+		glitchPoster: {
+			tag: "Glitch",
+			title: "Glitch Poster",
 			description:
-				"Glitch, displace, and corrupt an image for a distressed digital look.",
+				"Digital glitch distortion with RGB channel splitting and scanline artifacts.",
 		},
-		chromaticBlur: {
-			tag: "Masked · Threshold",
-			title: "Chromatic Motion Blur",
-			description:
-				"Blend dynamic chromatic blurs and aura gradients behind subjects for a futuristic aesthetic.",
-		},
-		filmGrainDrip: {
-			tag: "Texture",
-			title: "Film Grain Drip",
-			description: "Layer analog grain and ink drips over portrait close-ups.",
-		},
-		riso: {
-			tag: "Print",
-			title: "Riso Zine Print",
-			description:
-				"Two-tone risograph print treatment with hand-drawn overlays.",
-		},
-		duotoneSunset: {
+		duotonePortrait: {
 			tag: "Duotone",
-			title: "Duotone Sunset",
-			description: "Warm duotone grading inspired by golden-hour silhouettes.",
+			title: "Duotone Portrait",
+			description:
+				"Map your photo to a two-tone color palette with adjustable contrast and vignette.",
+		},
+		halftoneMagazine: {
+			tag: "Print",
+			title: "Halftone Magazine",
+			description:
+				"Convert photos to classic halftone dot patterns for a retro print aesthetic.",
+		},
+		vintageFilm: {
+			tag: "Film",
+			title: "Vintage Film",
+			description:
+				"Analog film grain with warm toning and heavy vignette for a nostalgic look.",
+		},
+		neonGlow: {
+			tag: "Neon",
+			title: "Neon Glow",
+			description:
+				"High-contrast dark imagery with chromatic aberration and vibrant neon typography.",
+		},
+		pixelMosaic: {
+			tag: "Retro",
+			title: "Pixel Mosaic",
+			description:
+				"Pixelate and posterize your photo for an 8-bit retro game aesthetic.",
+		},
+		waveDreams: {
+			tag: "Surreal",
+			title: "Wave Dreams",
+			description:
+				"Fluid wave distortion with chromatic shifts for a dreamy, surreal composition.",
+		},
+		boldSplit: {
+			tag: "Bold",
+			title: "Bold Split",
+			description:
+				"Dramatic pixel stretch with posterize effect for a bold, high-impact poster.",
 		},
 	},
 	auth: {

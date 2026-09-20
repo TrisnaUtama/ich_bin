@@ -1,0 +1,86 @@
+{
+	"id": "wave-dreams",
+	"name": "Wave Dreams",
+	"version": 1,
+	"aspectRatios": ["4:5"],
+	"fonts": ["Georgia", "Arial", "Arial Narrow"],
+	"canvas": {
+		"width": 1080,
+		"height": 1350,
+		"background": {
+			"kind": "gradient",
+			"color": "#0a0a1a",
+			"opacity": 1,
+			"gradient": {
+				"type": "linear",
+				"angle": 180,
+				"stops": [
+					{ "color": "#0a0520", "position": 0 },
+					{ "color": "#15082e", "position": 0.4 },
+					{ "color": "#200a3a", "position": 1 }
+				]
+			}
+		}
+	},
+	"layers": [
+		{
+			"type": "image",
+			"slot": "photo",
+			"fit": "cover",
+			"controls": {
+				"exposure": 0,
+				"contrast": 10,
+				"saturation": 20,
+				"temperature": -15,
+				"tint": 5,
+				"highlights": 10,
+				"shadows": 0,
+				"opacity": 100,
+				"scale": 100,
+				"rotation": 0
+			},
+			"effects": [
+				{
+					"id": "wave-main",
+					"type": "waveDistortion",
+					"amplitudeX": 50,
+					"amplitudeY": 25,
+					"frequencyX": 5,
+					"frequencyY": 3,
+					"phase": 30
+				},
+				{
+					"id": "chromatic-wave",
+					"type": "chromaticAberration",
+					"offset": 15,
+					"angle": 45,
+					"falloff": 30
+				}
+			]
+		},
+		{
+			"type": "text",
+			"slot": "heading",
+			"label": "Title",
+			"default": "DREAMSCAPE",
+			"font": "Georgia",
+			"size": 80,
+			"letterSpacing": 10,
+			"color": "#c8a0ff",
+			"x": 60,
+			"y": 1100
+		},
+		{
+			"type": "text",
+			"slot": "subtitle",
+			"label": "Subtitle",
+			"default": "Between reality & imagination",
+			"font": "Arial Narrow",
+			"size": 26,
+			"letterSpacing": 4,
+			"color": "#7a6a9a",
+			"x": 64,
+			"y": 1210
+		}
+	]
+}
