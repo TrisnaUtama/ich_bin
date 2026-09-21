@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import { AuthShowcase } from "./components/auth-showcase";
 import { LoginPanel } from "./components/login-panel";
 
 export function LoginPage() {
+	useEffect(() => { document.title = "Login — ZINEFORGE"; }, []);
+
 	return (
 		<main className="min-h-[100svh] bg-ink-950 lg:grid lg:grid-cols-2 lg:items-stretch lg:gap-0 lg:p-7">
 			<LoginPanel />
