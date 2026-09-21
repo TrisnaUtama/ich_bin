@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { SiteFooter } from "#/components/layout/site-footer";
 import { PageHeader } from "#/components/layout/page-header";
+import { SiteFooter } from "#/components/layout/site-footer";
 import { useTranslation } from "#/i18n/useTranslation";
 import { EASE, gsap, useGSAP } from "#/lib/animations";
 import { cn } from "#/lib/utils/cn";
@@ -20,38 +20,44 @@ const BLOG_POSTS = [
 	{
 		key: "post1",
 		tag: "tutorial",
-		image: "https://images.unsplash.com/photo-1561998338-13ad7883b20f?w=800&h=500&fit=crop&q=80",
+		image:
+			"https://images.unsplash.com/photo-1561998338-13ad7883b20f?w=800&h=500&fit=crop&q=80",
 		date: "2026-09-18",
 		featured: true,
 	},
 	{
 		key: "post2",
 		tag: "design",
-		image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop&q=80",
+		image:
+			"https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop&q=80",
 		date: "2026-09-15",
 	},
 	{
 		key: "post3",
 		tag: "update",
-		image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop&q=80",
+		image:
+			"https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop&q=80",
 		date: "2026-09-12",
 	},
 	{
 		key: "post4",
 		tag: "community",
-		image: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=600&h=400&fit=crop&q=80",
+		image:
+			"https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=600&h=400&fit=crop&q=80",
 		date: "2026-09-08",
 	},
 	{
 		key: "post5",
 		tag: "tips",
-		image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600&h=400&fit=crop&q=80",
+		image:
+			"https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600&h=400&fit=crop&q=80",
 		date: "2026-09-04",
 	},
 	{
 		key: "post6",
 		tag: "design",
-		image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&q=80",
+		image:
+			"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&q=80",
 		date: "2026-08-30",
 	},
 ];
@@ -73,7 +79,9 @@ function BlogPage() {
 		{ scope: sectionRef },
 	);
 
-	useEffect(() => { document.title = "Blog — ZINEFORGE"; }, []);
+	useEffect(() => {
+		document.title = "Blog — ZINEFORGE";
+	}, []);
 
 	const formatDate = (dateStr: string) => {
 		const d = new Date(dateStr);
@@ -141,7 +149,8 @@ function BlogPage() {
 									<span
 										className={cn(
 											"rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] ring-1 ring-inset",
-											TAG_COLORS[featured.tag] ?? "bg-white/10 text-white/60 ring-white/20",
+											TAG_COLORS[featured.tag] ??
+												"bg-white/10 text-white/60 ring-white/20",
 										)}
 									>
 										{t(`blogPage.tags.${featured.tag}`)}
@@ -159,9 +168,18 @@ function BlogPage() {
 								<div className="mt-8">
 									<span className="inline-flex items-center gap-2 text-sm font-semibold text-[#f97505] transition-colors group-hover:text-[#ffb060]">
 										{t("blogPage.readMore")}
-										<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-											<path d="M5 12h14"/>
-											<path d="m12 5 7 7-7 7"/>
+										<svg
+											width="16"
+											height="16"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2.5"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+										>
+											<path d="M5 12h14" />
+											<path d="m12 5 7 7-7 7" />
 										</svg>
 									</span>
 								</div>
@@ -199,7 +217,8 @@ function BlogPage() {
 										<span
 											className={cn(
 												"rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] ring-1 ring-inset",
-												TAG_COLORS[post.tag] ?? "bg-white/10 text-white/60 ring-white/20",
+												TAG_COLORS[post.tag] ??
+													"bg-white/10 text-white/60 ring-white/20",
 											)}
 										>
 											{t(`blogPage.tags.${post.tag}`)}
@@ -217,9 +236,18 @@ function BlogPage() {
 									<div className="mt-5">
 										<span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#f97505] transition-colors group-hover:text-[#ffb060]">
 											{t("blogPage.readMore")}
-											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-												<path d="M5 12h14"/>
-												<path d="m12 5 7 7-7 7"/>
+											<svg
+												width="14"
+												height="14"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												strokeWidth="2.5"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											>
+												<path d="M5 12h14" />
+												<path d="m12 5 7 7-7 7" />
 											</svg>
 										</span>
 									</div>

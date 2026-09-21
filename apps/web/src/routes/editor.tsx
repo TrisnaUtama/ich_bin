@@ -55,36 +55,51 @@ function Editor() {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 	const [imageControlsOpen, setImageControlsOpen] = useState(false);
 	const [dragPos, setDragPos] = useState<{ x: number; y: number } | null>(null);
-	const dragRef = useRef<{ startX: number; startY: number; originX: number; originY: number } | null>(null);
+	const dragRef = useRef<{
+		startX: number;
+		startY: number;
+		originX: number;
+		originY: number;
+	} | null>(null);
 
-	const onDragStart = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-		e.preventDefault();
-		const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-		const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
-		const cur = dragPos ?? { x: 0, y: 0 };
-		dragRef.current = { startX: clientX, startY: clientY, originX: cur.x, originY: cur.y };
+	const onDragStart = useCallback(
+		(e: React.MouseEvent | React.TouchEvent) => {
+			e.preventDefault();
+			const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+			const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+			const cur = dragPos ?? { x: 0, y: 0 };
+			dragRef.current = {
+				startX: clientX,
+				startY: clientY,
+				originX: cur.x,
+				originY: cur.y,
+			};
 
-		const onMove = (ev: MouseEvent | TouchEvent) => {
-			if (!dragRef.current) return;
-			const cx = "touches" in ev ? ev.touches[0].clientX : (ev as MouseEvent).clientX;
-			const cy = "touches" in ev ? ev.touches[0].clientY : (ev as MouseEvent).clientY;
-			setDragPos({
-				x: dragRef.current.originX + (cx - dragRef.current.startX),
-				y: dragRef.current.originY + (cy - dragRef.current.startY),
-			});
-		};
-		const onUp = () => {
-			dragRef.current = null;
-			window.removeEventListener("mousemove", onMove);
-			window.removeEventListener("mouseup", onUp);
-			window.removeEventListener("touchmove", onMove);
-			window.removeEventListener("touchend", onUp);
-		};
-		window.addEventListener("mousemove", onMove);
-		window.addEventListener("mouseup", onUp);
-		window.addEventListener("touchmove", onMove);
-		window.addEventListener("touchend", onUp);
-	}, [dragPos]);
+			const onMove = (ev: MouseEvent | TouchEvent) => {
+				if (!dragRef.current) return;
+				const cx =
+					"touches" in ev ? ev.touches[0].clientX : (ev as MouseEvent).clientX;
+				const cy =
+					"touches" in ev ? ev.touches[0].clientY : (ev as MouseEvent).clientY;
+				setDragPos({
+					x: dragRef.current.originX + (cx - dragRef.current.startX),
+					y: dragRef.current.originY + (cy - dragRef.current.startY),
+				});
+			};
+			const onUp = () => {
+				dragRef.current = null;
+				window.removeEventListener("mousemove", onMove);
+				window.removeEventListener("mouseup", onUp);
+				window.removeEventListener("touchmove", onMove);
+				window.removeEventListener("touchend", onUp);
+			};
+			window.addEventListener("mousemove", onMove);
+			window.addEventListener("mouseup", onUp);
+			window.addEventListener("touchmove", onMove);
+			window.addEventListener("touchend", onUp);
+		},
+		[dragPos],
+	);
 
 	useEffect(() => {
 		let app: Application | null = null;
@@ -223,7 +238,9 @@ function Editor() {
 	const hasEffects = state ? Object.keys(state.effects).length > 0 : false;
 
 	useEffect(() => {
-		document.title = template ? `${template.name} — ZINEFORGE Editor` : "Editor — ZINEFORGE";
+		document.title = template
+			? `${template.name} — ZINEFORGE Editor`
+			: "Editor — ZINEFORGE";
 	}, [template]);
 
 	const sidebar = template && state && (
@@ -241,10 +258,19 @@ function Editor() {
 				<label className="group block cursor-pointer overflow-hidden rounded-xl border border-dashed border-white/15 transition-colors hover:border-primary-500/60">
 					<div className="flex items-center gap-3 px-4 py-4">
 						<div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white/5 text-white/30 transition-colors group-hover:bg-primary-500/10 group-hover:text-primary-400">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-								<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-								<circle cx="8.5" cy="8.5" r="1.5"/>
-								<polyline points="21 15 16 10 5 21"/>
+							<svg
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							>
+								<rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+								<circle cx="8.5" cy="8.5" r="1.5" />
+								<polyline points="21 15 16 10 5 21" />
 							</svg>
 						</div>
 						<div>
@@ -663,7 +689,11 @@ function Editor() {
 					{template && state && (
 						<div
 							className="absolute bottom-5 right-5 z-30"
-							style={dragPos ? { transform: `translate(${dragPos.x}px, ${dragPos.y}px)` } : undefined}
+							style={
+								dragPos
+									? { transform: `translate(${dragPos.x}px, ${dragPos.y}px)` }
+									: undefined
+							}
 						>
 							<AnimatePresence>
 								{imageControlsOpen && (
@@ -684,10 +714,19 @@ function Editor() {
 												{t("editor.imageControls")}
 											</span>
 											<div className="flex items-center gap-2">
-												<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-white/20">
-													<circle cx="8" cy="6" r="2"/><circle cx="16" cy="6" r="2"/>
-													<circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/>
-													<circle cx="8" cy="18" r="2"/><circle cx="16" cy="18" r="2"/>
+												<svg
+													width="14"
+													height="14"
+													viewBox="0 0 24 24"
+													fill="currentColor"
+													className="text-white/20"
+												>
+													<circle cx="8" cy="6" r="2" />
+													<circle cx="16" cy="6" r="2" />
+													<circle cx="8" cy="12" r="2" />
+													<circle cx="16" cy="12" r="2" />
+													<circle cx="8" cy="18" r="2" />
+													<circle cx="16" cy="18" r="2" />
 												</svg>
 												<button
 													type="button"
@@ -710,11 +749,15 @@ function Editor() {
 													<Slider
 														key={key}
 														label={d.label}
-														value={state.image[key as keyof EditorState["image"]]}
+														value={
+															state.image[key as keyof EditorState["image"]]
+														}
 														min={d.min}
 														max={d.max}
 														step={d.step}
-														onChange={(v) => setImg(key as keyof EditorState["image"], v)}
+														onChange={(v) =>
+															setImg(key as keyof EditorState["image"], v)
+														}
 													/>
 												))}
 										</div>
@@ -732,9 +775,18 @@ function Editor() {
 										: "bg-ink-900/80 text-white/60 ring-white/[0.08] hover:text-white/80",
 								)}
 							>
-								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-									<circle cx="12" cy="12" r="3"/>
-									<path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m17.36-5.64l-4.24 4.24m-2.24-2.24L6.64 6.64m0 10.72l4.24-4.24m2.24 2.24l4.24 4.24"/>
+								<svg
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									strokeWidth="2"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								>
+									<circle cx="12" cy="12" r="3" />
+									<path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m17.36-5.64l-4.24 4.24m-2.24-2.24L6.64 6.64m0 10.72l4.24-4.24m2.24 2.24l4.24 4.24" />
 								</svg>
 								{t("editor.imageControls")}
 								<svg

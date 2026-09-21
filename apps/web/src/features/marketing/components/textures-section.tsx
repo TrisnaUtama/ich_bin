@@ -85,7 +85,8 @@ export function TexturesSection() {
 								key={texture.image}
 								className={cn(
 									"group relative w-full overflow-hidden rounded-2xl ring-1 ring-inset ring-white/[0.07] transition-all duration-300 hover:ring-white/15",
-									CARD_OFFSET[i], "h-[480px] sm:max-w-[320px] lg:w-[280px] lg:shrink-0",
+									CARD_OFFSET[i],
+									"h-[480px] sm:max-w-[320px] lg:w-[280px] lg:shrink-0",
 								)}
 							>
 								{/* Number label */}

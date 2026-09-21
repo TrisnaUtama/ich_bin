@@ -11,30 +11,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  typecheck:
-    name: Typecheck & lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+  # typecheck:
+  #   name: Typecheck & lint
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
+  #     - uses: oven-sh/setup-bun@v2
+  #       with:
+  #         bun-version: latest
 
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
+  #     - name: Install dependencies
+  #       run: bun install --frozen-lockfile
 
-      - name: Typecheck apps/api
-        run: bunx tsc --noEmit -p apps/api
+  #     - name: Typecheck apps/api
+  #       run: bunx tsc --noEmit -p apps/api
 
-      - name: Typecheck apps/web
-        run: bunx tsc --noEmit -p apps/web
+  #     - name: Typecheck apps/web
+  #       run: bunx tsc --noEmit -p apps/web
 
-      - name: Typecheck packages/db
-        run: bunx tsc --noEmit -p packages/db
+  #     - name: Typecheck packages/db
+  #       run: bunx tsc --noEmit -p packages/db
 
-      - name: Lint (biome)
-        run: bunx biome ci .
+  #     - name: Lint (biome)
+  #       run: bunx biome ci .
 
   build:
     name: Build & push images

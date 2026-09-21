@@ -26,10 +26,30 @@ export const de: Dictionary = {
 		badge: "Warum Zineforge",
 		heading: "GEBAUT FÜR EXPERIMENTELLE KREATIVE",
 		features: [
-			{ number: "01", title: "SOFORTIGE WEB-ENGINE", description: "Verarbeite komplexe visuelle Verzerrungen direkt im Browser ohne Setup oder Hardware-Barrieren." },
-			{ number: "02", title: "ECHTZEIT-STEUERUNG", description: "Experimentiere mit Verzerrungswinkeln, Typografie-Umbrüchen und chromatischen Verschiebungen mit Live-Feedback." },
-			{ number: "03", title: "PRODUKTIONSAUSGABE", description: "Exportiere gestochen scharfe, hochauflösende visuelle Assets für professionelle digitale und physische Medien." },
-			{ number: "04", title: "MERCH-INTEGRATION", description: "Visualisiere Kunstwerke auf individuellen Streetwear-Mockups und bringe digitale Grafiken in physische Produkte." },
+			{
+				number: "01",
+				title: "SOFORTIGE WEB-ENGINE",
+				description:
+					"Verarbeite komplexe visuelle Verzerrungen direkt im Browser ohne Setup oder Hardware-Barrieren.",
+			},
+			{
+				number: "02",
+				title: "ECHTZEIT-STEUERUNG",
+				description:
+					"Experimentiere mit Verzerrungswinkeln, Typografie-Umbrüchen und chromatischen Verschiebungen mit Live-Feedback.",
+			},
+			{
+				number: "03",
+				title: "PRODUKTIONSAUSGABE",
+				description:
+					"Exportiere gestochen scharfe, hochauflösende visuelle Assets für professionelle digitale und physische Medien.",
+			},
+			{
+				number: "04",
+				title: "MERCH-INTEGRATION",
+				description:
+					"Visualisiere Kunstwerke auf individuellen Streetwear-Mockups und bringe digitale Grafiken in physische Produkte.",
+			},
 		],
 	},
 	templatesSection: {
@@ -174,16 +194,34 @@ export const de: Dictionary = {
 	texturesSection: {
 		badge: "Analoge Oberflächen",
 		heading: "Taktile Texturen & Filmkorn",
-		subheading: "Bewegen Sie den Mauszeiger über eine Texturkarte, um die Echtzeitanwendung auf Posterkunst zu sehen.",
+		subheading:
+			"Bewegen Sie den Mauszeiger über eine Texturkarte, um die Echtzeitanwendung auf Posterkunst zu sehen.",
 		textures: [
-			{ title: "Mitternachtsfalte", description: "Dunkle Oberflächen mit dünnen Lichtakzenten und geheimnisvoller Atmosphäre." },
-			{ title: "Rausch-Gradienten-Mesh", description: "Wellenförmiger Gradientenhintergrund mit feiner Rauschtextur für einen modernen, abstrakten Look." },
-			{ title: "Perforierte Mesh-Textur", description: "Dichte kreisförmige Perforationen mit einem schlanken futuristischen Mesh-Finish." },
-			{ title: "Dunkle Wellenpulse", description: "Rhythmische kreisförmige Wellenformation, die sich über eine dunkle, reflektierende Flüssigkeit ausbreitet." },
+			{
+				title: "Mitternachtsfalte",
+				description:
+					"Dunkle Oberflächen mit dünnen Lichtakzenten und geheimnisvoller Atmosphäre.",
+			},
+			{
+				title: "Rausch-Gradienten-Mesh",
+				description:
+					"Wellenförmiger Gradientenhintergrund mit feiner Rauschtextur für einen modernen, abstrakten Look.",
+			},
+			{
+				title: "Perforierte Mesh-Textur",
+				description:
+					"Dichte kreisförmige Perforationen mit einem schlanken futuristischen Mesh-Finish.",
+			},
+			{
+				title: "Dunkle Wellenpulse",
+				description:
+					"Rhythmische kreisförmige Wellenformation, die sich über eine dunkle, reflektierende Flüssigkeit ausbreitet.",
+			},
 		],
 	},
 	footer: {
-		tagline: "Erstelle Poster und Merchandise in Studioqualität in Sekunden mit experimentellen visuellen Effekten.",
+		tagline:
+			"Erstelle Poster und Merchandise in Studioqualität in Sekunden mit experimentellen visuellen Effekten.",
 		product: "Produkt",
 		company: "Unternehmen",
 		legal: "Rechtliches",
@@ -200,39 +238,103 @@ export const de: Dictionary = {
 		title: "Nutzungsbedingungen",
 		lastUpdated: "Zuletzt aktualisiert: 21. September 2026",
 		sections: [
-			{ heading: "Annahme der Bedingungen", body: "Durch den Zugriff auf oder die Nutzung von ZINEFORGE (\"der Dienst\") stimmen Sie diesen Nutzungsbedingungen zu. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie den Dienst bitte nicht. Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren, und die fortgesetzte Nutzung stellt die Annahme jeglicher Änderungen dar." },
-			{ heading: "Beschreibung des Dienstes", body: "ZINEFORGE ist eine webbasierte Kreativplattform, die es Nutzern ermöglicht, Poster in Studioqualität, experimentelle Typografie und individuelle Merchandise-Designs mit einer Vielzahl von visuellen Effektvorlagen zu erstellen. Der Dienst umfasst einen browserbasierten Editor, eine Vorlagenbibliothek und Exportfunktionen." },
-			{ heading: "Benutzerkonten", body: "Um auf bestimmte Funktionen zugreifen zu können, müssen Sie ein Konto erstellen. Sie sind verantwortlich für die Wahrung der Vertraulichkeit Ihrer Kontodaten und für alle Aktivitäten unter Ihrem Konto. Sie verpflichten sich, uns unverzüglich über jede unbefugte Nutzung zu informieren. Wir behalten uns das Recht vor, Konten zu sperren oder zu kündigen, die gegen diese Bedingungen verstoßen." },
-			{ heading: "Nutzerinhalte & Geistiges Eigentum", body: "Sie behalten das Eigentum an allen originalen Inhalten, die Sie auf ZINEFORGE hochladen. Durch das Hochladen von Inhalten gewähren Sie uns eine begrenzte, nicht-exklusive Lizenz zur Verarbeitung und Anzeige Ihrer Inhalte ausschließlich zum Zweck der Bereitstellung des Dienstes. Alle Vorlagen, Effekte, UI-Elemente und andere von ZINEFORGE bereitgestellte Materialien sind geistiges Eigentum von ZINEFORGE und seinen Lizenzgebern. Sie dürfen generierte Ergebnisse für persönliche und kommerzielle Zwecke verwenden, dürfen aber die Vorlagen oder Effekte selbst nicht weiterverbreiten, weiterverkaufen oder unterlizenzieren." },
-			{ heading: "Credits & Zahlungen", body: "Bestimmte Premium-Funktionen erfordern Credits oder ein Abonnement. Alle Käufe sind endgültig, sofern nicht anders angegeben. Credits sind nicht übertragbar und verfallen gemäß den Bedingungen Ihres Plans. Preise können mit angemessener Vorankündigung geändert werden." },
-			{ heading: "Verbotene Nutzung", body: "Sie verpflichten sich, Folgendes zu unterlassen: (a) den Dienst für rechtswidrige Zwecke zu nutzen; (b) Inhalte hochzuladen, die Rechte Dritter verletzen; (c) den Dienst zu reverse-engineeren, dekompilieren oder auszunutzen; (d) automatisierte Systeme zu verwenden, um den Dienst über die normale Nutzung hinaus zu scrapen oder darauf zuzugreifen; (e) Malware oder schädliche Inhalte über den Dienst zu verbreiten." },
-			{ heading: "Haftungsbeschränkung", body: "Der Dienst wird \"wie besehen\" ohne Gewährleistungen jeglicher Art bereitgestellt. ZINEFORGE haftet nicht für indirekte, zufällige, besondere oder Folgeschäden, die aus Ihrer Nutzung des Dienstes entstehen. Unsere Gesamthaftung übersteigt nicht den Betrag, den Sie in den zwölf Monaten vor dem Anspruch an uns gezahlt haben." },
-			{ heading: "Kündigung", body: "Wir können Ihren Zugang zum Dienst jederzeit wegen Verstößen gegen diese Bedingungen kündigen oder aussetzen. Nach der Kündigung erlischt Ihr Recht zur Nutzung des Dienstes sofort. Bestimmungen, die ihrer Natur nach die Kündigung überdauern sollten, bleiben in Kraft." },
-			{ heading: "Anwendbares Recht", body: "Diese Bedingungen unterliegen den Gesetzen der Republik Indonesien und werden in Übereinstimmung mit diesen ausgelegt, ohne Berücksichtigung von Kollisionsnormen." },
-			{ heading: "Kontakt", body: "Wenn Sie Fragen zu diesen Bedingungen haben, kontaktieren Sie uns bitte unter legal@zineforge.com." },
+			{
+				heading: "Annahme der Bedingungen",
+				body: 'Durch den Zugriff auf oder die Nutzung von ZINEFORGE ("der Dienst") stimmen Sie diesen Nutzungsbedingungen zu. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie den Dienst bitte nicht. Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren, und die fortgesetzte Nutzung stellt die Annahme jeglicher Änderungen dar.',
+			},
+			{
+				heading: "Beschreibung des Dienstes",
+				body: "ZINEFORGE ist eine webbasierte Kreativplattform, die es Nutzern ermöglicht, Poster in Studioqualität, experimentelle Typografie und individuelle Merchandise-Designs mit einer Vielzahl von visuellen Effektvorlagen zu erstellen. Der Dienst umfasst einen browserbasierten Editor, eine Vorlagenbibliothek und Exportfunktionen.",
+			},
+			{
+				heading: "Benutzerkonten",
+				body: "Um auf bestimmte Funktionen zugreifen zu können, müssen Sie ein Konto erstellen. Sie sind verantwortlich für die Wahrung der Vertraulichkeit Ihrer Kontodaten und für alle Aktivitäten unter Ihrem Konto. Sie verpflichten sich, uns unverzüglich über jede unbefugte Nutzung zu informieren. Wir behalten uns das Recht vor, Konten zu sperren oder zu kündigen, die gegen diese Bedingungen verstoßen.",
+			},
+			{
+				heading: "Nutzerinhalte & Geistiges Eigentum",
+				body: "Sie behalten das Eigentum an allen originalen Inhalten, die Sie auf ZINEFORGE hochladen. Durch das Hochladen von Inhalten gewähren Sie uns eine begrenzte, nicht-exklusive Lizenz zur Verarbeitung und Anzeige Ihrer Inhalte ausschließlich zum Zweck der Bereitstellung des Dienstes. Alle Vorlagen, Effekte, UI-Elemente und andere von ZINEFORGE bereitgestellte Materialien sind geistiges Eigentum von ZINEFORGE und seinen Lizenzgebern. Sie dürfen generierte Ergebnisse für persönliche und kommerzielle Zwecke verwenden, dürfen aber die Vorlagen oder Effekte selbst nicht weiterverbreiten, weiterverkaufen oder unterlizenzieren.",
+			},
+			{
+				heading: "Credits & Zahlungen",
+				body: "Bestimmte Premium-Funktionen erfordern Credits oder ein Abonnement. Alle Käufe sind endgültig, sofern nicht anders angegeben. Credits sind nicht übertragbar und verfallen gemäß den Bedingungen Ihres Plans. Preise können mit angemessener Vorankündigung geändert werden.",
+			},
+			{
+				heading: "Verbotene Nutzung",
+				body: "Sie verpflichten sich, Folgendes zu unterlassen: (a) den Dienst für rechtswidrige Zwecke zu nutzen; (b) Inhalte hochzuladen, die Rechte Dritter verletzen; (c) den Dienst zu reverse-engineeren, dekompilieren oder auszunutzen; (d) automatisierte Systeme zu verwenden, um den Dienst über die normale Nutzung hinaus zu scrapen oder darauf zuzugreifen; (e) Malware oder schädliche Inhalte über den Dienst zu verbreiten.",
+			},
+			{
+				heading: "Haftungsbeschränkung",
+				body: 'Der Dienst wird "wie besehen" ohne Gewährleistungen jeglicher Art bereitgestellt. ZINEFORGE haftet nicht für indirekte, zufällige, besondere oder Folgeschäden, die aus Ihrer Nutzung des Dienstes entstehen. Unsere Gesamthaftung übersteigt nicht den Betrag, den Sie in den zwölf Monaten vor dem Anspruch an uns gezahlt haben.',
+			},
+			{
+				heading: "Kündigung",
+				body: "Wir können Ihren Zugang zum Dienst jederzeit wegen Verstößen gegen diese Bedingungen kündigen oder aussetzen. Nach der Kündigung erlischt Ihr Recht zur Nutzung des Dienstes sofort. Bestimmungen, die ihrer Natur nach die Kündigung überdauern sollten, bleiben in Kraft.",
+			},
+			{
+				heading: "Anwendbares Recht",
+				body: "Diese Bedingungen unterliegen den Gesetzen der Republik Indonesien und werden in Übereinstimmung mit diesen ausgelegt, ohne Berücksichtigung von Kollisionsnormen.",
+			},
+			{
+				heading: "Kontakt",
+				body: "Wenn Sie Fragen zu diesen Bedingungen haben, kontaktieren Sie uns bitte unter legal@zineforge.com.",
+			},
 		],
 	},
 	privacyPage: {
 		title: "Datenschutzrichtlinie",
 		lastUpdated: "Zuletzt aktualisiert: 21. September 2026",
 		sections: [
-			{ heading: "Informationen die wir sammeln", body: "Wir sammeln Informationen, die Sie direkt angeben, wie Ihren Namen, Ihre E-Mail-Adresse und Zahlungsdetails, wenn Sie ein Konto erstellen oder einen Kauf tätigen. Wir sammeln auch automatisch Nutzungsdaten, einschließlich Browsertyp, Geräteinformationen, IP-Adresse, besuchte Seiten und Interaktionen mit dem Dienst." },
-			{ heading: "Wie wir Ihre Informationen verwenden", body: "Wir verwenden Ihre Informationen um: (a) den Dienst bereitzustellen, zu warten und zu verbessern; (b) Transaktionen zu verarbeiten und zugehörige Benachrichtigungen zu senden; (c) auf Support-Anfragen zu reagieren; (d) Produktupdates und Marketingmitteilungen zu senden (mit Ihrer Zustimmung); (e) Betrug oder Missbrauch zu erkennen und zu verhindern; (f) gesetzliche Verpflichtungen zu erfüllen." },
-			{ heading: "Nutzerinhalte", body: "Bilder und Designs, die Sie hochladen, werden auf unseren Servern ausschließlich zur Bereitstellung der Bearbeitungs- und Exportfunktionen verarbeitet. Wir verwenden Ihre hochgeladenen Inhalte nicht zum Training von Machine-Learning-Modellen. Ihre Inhalte werden sicher gespeichert und von unseren aktiven Servern gelöscht, wenn Sie sie aus Ihrem Konto entfernen." },
-			{ heading: "Datenweitergabe", body: "Wir verkaufen Ihre persönlichen Daten nicht. Wir können Daten mit vertrauenswürdigen Drittanbietern teilen, die uns beim Betrieb des Dienstes unterstützen (Zahlungsabwicklung, Hosting, Analytik), und nur im erforderlichen Umfang. Wir können Informationen auch offenlegen, wenn dies gesetzlich vorgeschrieben ist oder um die Rechte und Sicherheit von ZINEFORGE und seinen Nutzern zu schützen." },
-			{ heading: "Cookies & Tracking", body: "Wir verwenden Cookies und ähnliche Technologien, um Ihre Sitzung aufrechtzuerhalten, Präferenzen zu speichern und Nutzungsmuster zu analysieren. Sie können Cookie-Einstellungen über Ihren Browser steuern. Das Deaktivieren von Cookies kann bestimmte Funktionen des Dienstes beeinträchtigen." },
-			{ heading: "Datensicherheit", body: "Wir implementieren branchenübliche Sicherheitsmaßnahmen zum Schutz Ihrer Informationen, einschließlich Verschlüsselung bei der Übertragung und im Ruhezustand, Zugriffskontrollen und regelmäßige Sicherheitsaudits. Keine Übertragungsmethode oder Speicherung ist jedoch vollständig sicher, und wir können keine absolute Sicherheit garantieren." },
-			{ heading: "Datenaufbewahrung", body: "Wir bewahren Ihre persönlichen Daten auf, solange Ihr Konto aktiv ist oder zur Bereitstellung des Dienstes erforderlich. Nach Kontolöschung entfernen wir Ihre persönlichen Daten innerhalb von 30 Tagen, es sei denn, die Aufbewahrung ist gesetzlich vorgeschrieben oder für legitime Geschäftszwecke wie Streitbeilegung erforderlich." },
-			{ heading: "Ihre Rechte", body: "Je nach Ihrer Gerichtsbarkeit haben Sie möglicherweise das Recht auf: Zugang, Berichtigung oder Löschung Ihrer persönlichen Daten; Widerspruch oder Einschränkung der Verarbeitung; Datenportabilität; und Widerruf der Einwilligung. Zur Ausübung dieser Rechte kontaktieren Sie uns unter der unten angegebenen Adresse." },
-			{ heading: "Datenschutz für Kinder", body: "Der Dienst ist nicht für Nutzer unter 13 Jahren bestimmt. Wir sammeln wissentlich keine persönlichen Daten von Kindern. Wenn wir erfahren, dass wir Daten von einem Kind unter 13 Jahren gesammelt haben, werden wir Maßnahmen ergreifen, um diese umgehend zu löschen." },
-			{ heading: "Änderungen dieser Richtlinie", body: "Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Wir werden Sie über wesentliche Änderungen informieren, indem wir die aktualisierte Richtlinie auf dieser Seite veröffentlichen und das Datum \"Zuletzt aktualisiert\" aktualisieren. Ihre fortgesetzte Nutzung des Dienstes nach Änderungen stellt eine Annahme dar." },
-			{ heading: "Kontakt", body: "Wenn Sie Fragen zu dieser Datenschutzrichtlinie oder Ihren Daten haben, kontaktieren Sie uns bitte unter privacy@zineforge.com." },
+			{
+				heading: "Informationen die wir sammeln",
+				body: "Wir sammeln Informationen, die Sie direkt angeben, wie Ihren Namen, Ihre E-Mail-Adresse und Zahlungsdetails, wenn Sie ein Konto erstellen oder einen Kauf tätigen. Wir sammeln auch automatisch Nutzungsdaten, einschließlich Browsertyp, Geräteinformationen, IP-Adresse, besuchte Seiten und Interaktionen mit dem Dienst.",
+			},
+			{
+				heading: "Wie wir Ihre Informationen verwenden",
+				body: "Wir verwenden Ihre Informationen um: (a) den Dienst bereitzustellen, zu warten und zu verbessern; (b) Transaktionen zu verarbeiten und zugehörige Benachrichtigungen zu senden; (c) auf Support-Anfragen zu reagieren; (d) Produktupdates und Marketingmitteilungen zu senden (mit Ihrer Zustimmung); (e) Betrug oder Missbrauch zu erkennen und zu verhindern; (f) gesetzliche Verpflichtungen zu erfüllen.",
+			},
+			{
+				heading: "Nutzerinhalte",
+				body: "Bilder und Designs, die Sie hochladen, werden auf unseren Servern ausschließlich zur Bereitstellung der Bearbeitungs- und Exportfunktionen verarbeitet. Wir verwenden Ihre hochgeladenen Inhalte nicht zum Training von Machine-Learning-Modellen. Ihre Inhalte werden sicher gespeichert und von unseren aktiven Servern gelöscht, wenn Sie sie aus Ihrem Konto entfernen.",
+			},
+			{
+				heading: "Datenweitergabe",
+				body: "Wir verkaufen Ihre persönlichen Daten nicht. Wir können Daten mit vertrauenswürdigen Drittanbietern teilen, die uns beim Betrieb des Dienstes unterstützen (Zahlungsabwicklung, Hosting, Analytik), und nur im erforderlichen Umfang. Wir können Informationen auch offenlegen, wenn dies gesetzlich vorgeschrieben ist oder um die Rechte und Sicherheit von ZINEFORGE und seinen Nutzern zu schützen.",
+			},
+			{
+				heading: "Cookies & Tracking",
+				body: "Wir verwenden Cookies und ähnliche Technologien, um Ihre Sitzung aufrechtzuerhalten, Präferenzen zu speichern und Nutzungsmuster zu analysieren. Sie können Cookie-Einstellungen über Ihren Browser steuern. Das Deaktivieren von Cookies kann bestimmte Funktionen des Dienstes beeinträchtigen.",
+			},
+			{
+				heading: "Datensicherheit",
+				body: "Wir implementieren branchenübliche Sicherheitsmaßnahmen zum Schutz Ihrer Informationen, einschließlich Verschlüsselung bei der Übertragung und im Ruhezustand, Zugriffskontrollen und regelmäßige Sicherheitsaudits. Keine Übertragungsmethode oder Speicherung ist jedoch vollständig sicher, und wir können keine absolute Sicherheit garantieren.",
+			},
+			{
+				heading: "Datenaufbewahrung",
+				body: "Wir bewahren Ihre persönlichen Daten auf, solange Ihr Konto aktiv ist oder zur Bereitstellung des Dienstes erforderlich. Nach Kontolöschung entfernen wir Ihre persönlichen Daten innerhalb von 30 Tagen, es sei denn, die Aufbewahrung ist gesetzlich vorgeschrieben oder für legitime Geschäftszwecke wie Streitbeilegung erforderlich.",
+			},
+			{
+				heading: "Ihre Rechte",
+				body: "Je nach Ihrer Gerichtsbarkeit haben Sie möglicherweise das Recht auf: Zugang, Berichtigung oder Löschung Ihrer persönlichen Daten; Widerspruch oder Einschränkung der Verarbeitung; Datenportabilität; und Widerruf der Einwilligung. Zur Ausübung dieser Rechte kontaktieren Sie uns unter der unten angegebenen Adresse.",
+			},
+			{
+				heading: "Datenschutz für Kinder",
+				body: "Der Dienst ist nicht für Nutzer unter 13 Jahren bestimmt. Wir sammeln wissentlich keine persönlichen Daten von Kindern. Wenn wir erfahren, dass wir Daten von einem Kind unter 13 Jahren gesammelt haben, werden wir Maßnahmen ergreifen, um diese umgehend zu löschen.",
+			},
+			{
+				heading: "Änderungen dieser Richtlinie",
+				body: 'Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Wir werden Sie über wesentliche Änderungen informieren, indem wir die aktualisierte Richtlinie auf dieser Seite veröffentlichen und das Datum "Zuletzt aktualisiert" aktualisieren. Ihre fortgesetzte Nutzung des Dienstes nach Änderungen stellt eine Annahme dar.',
+			},
+			{
+				heading: "Kontakt",
+				body: "Wenn Sie Fragen zu dieser Datenschutzrichtlinie oder Ihren Daten haben, kontaktieren Sie uns bitte unter privacy@zineforge.com.",
+			},
 		],
 	},
 	aboutPage: {
 		badge: "Über Uns",
 		heroTitle: "Wir Glauben Design Sollte Furchtlos Sein",
-		heroDescription: "Zineforge entstand aus einer einfachen Idee: Dass leistungsstarke Kreativtools nicht hinter teurer Software oder jahrelangem Training verschlossen sein sollten. Wir bauen die Plattform, auf der jeder beeindruckende, studioqualitäts Designs erstellen kann.",
+		heroDescription:
+			"Zineforge entstand aus einer einfachen Idee: Dass leistungsstarke Kreativtools nicht hinter teurer Software oder jahrelangem Training verschlossen sein sollten. Wir bauen die Plattform, auf der jeder beeindruckende, studioqualitäts Designs erstellen kann.",
 		stats: {
 			users: "Aktive Nutzer",
 			templates: "Vorlagen",
@@ -241,37 +343,46 @@ export const de: Dictionary = {
 		},
 		storyBadge: "Unsere Geschichte",
 		storyHeading: "Geboren aus der Underground-Designszene",
-		storyP1: "Zineforge begann Ende 2025, inspiriert von der rohen Energie der Zine-Kultur, Underground-Posterkunst und experimenteller Typografie. Uns fiel auf, dass die aufregendsten visuellen Designtechniken — Pixelstreckung, Glitch-Effekte, Duotone-Mapping, Liquid-Blurs — nur Designern mit fortgeschrittenen Photoshop-Kenntnissen zugänglich waren.",
-		storyP2: "Wir wollten das ändern. Durch das Verpacken dieser Techniken in intuitive, browserbasierte Vorlagen ermöglichten wir es jedem, Visuals zu erstellen, die handgefertigt und einzigartig wirken — ohne eine einzige Ebenenmaske oder Bézierkurve zu berühren.",
-		storyP3: "Heute bedient Zineforge tausende Kreative weltweit: Grafikdesigner auf der Suche nach Geschwindigkeit, Musiker die Merch gestalten, Marken die mutige Visuals suchen und Hobbyisten die ihre Kreativität erkunden. Jede Vorlage wird mit obsessiver Liebe zum Detail gestaltet, und unser Editor gibt dir die volle Kontrolle.",
+		storyP1:
+			"Zineforge begann Ende 2025, inspiriert von der rohen Energie der Zine-Kultur, Underground-Posterkunst und experimenteller Typografie. Uns fiel auf, dass die aufregendsten visuellen Designtechniken — Pixelstreckung, Glitch-Effekte, Duotone-Mapping, Liquid-Blurs — nur Designern mit fortgeschrittenen Photoshop-Kenntnissen zugänglich waren.",
+		storyP2:
+			"Wir wollten das ändern. Durch das Verpacken dieser Techniken in intuitive, browserbasierte Vorlagen ermöglichten wir es jedem, Visuals zu erstellen, die handgefertigt und einzigartig wirken — ohne eine einzige Ebenenmaske oder Bézierkurve zu berühren.",
+		storyP3:
+			"Heute bedient Zineforge tausende Kreative weltweit: Grafikdesigner auf der Suche nach Geschwindigkeit, Musiker die Merch gestalten, Marken die mutige Visuals suchen und Hobbyisten die ihre Kreativität erkunden. Jede Vorlage wird mit obsessiver Liebe zum Detail gestaltet, und unser Editor gibt dir die volle Kontrolle.",
 		valuesBadge: "Unsere Werte",
 		valuesHeading: "Was Uns Antreibt",
 		values: {
 			craft: {
 				title: "Obsessives Handwerk",
-				description: "Jede Vorlage, jeder Regler, jedes Pixel ist mit Absicht gestaltet. Wir veröffentlichen nichts, was wir nicht selbst nutzen würden.",
+				description:
+					"Jede Vorlage, jeder Regler, jedes Pixel ist mit Absicht gestaltet. Wir veröffentlichen nichts, was wir nicht selbst nutzen würden.",
 			},
 			access: {
 				title: "Globaler Zugang",
-				description: "Großartige Design-Tools sollten für jeden verfügbar sein, überall. Unsere Plattform funktioniert in jedem modernen Browser, in mehreren Sprachen.",
+				description:
+					"Großartige Design-Tools sollten für jeden verfügbar sein, überall. Unsere Plattform funktioniert in jedem modernen Browser, in mehreren Sprachen.",
 			},
 			community: {
 				title: "Community Zuerst",
-				description: "Unsere Galerie zeigt echte Arbeiten von echten Kreativen. Wir bauen für unsere Community und wachsen gemeinsam.",
+				description:
+					"Unsere Galerie zeigt echte Arbeiten von echten Kreativen. Wir bauen für unsere Community und wachsen gemeinsam.",
 			},
 			innovation: {
 				title: "Grenzen Verschieben",
-				description: "Wir erkunden ständig neue visuelle Techniken und Effekte, um dein kreatives Toolkit frisch und den Trends voraus zu halten.",
+				description:
+					"Wir erkunden ständig neue visuelle Techniken und Effekte, um dein kreatives Toolkit frisch und den Trends voraus zu halten.",
 			},
 		},
 		ctaTitle: "Bereit Etwas Mutiges zu Schaffen?",
-		ctaDescription: "Schließe dich tausenden Kreativen an, die Zineforge für ihre kühnsten visuellen Projekte vertrauen. Starte kostenlos, keine Kreditkarte nötig.",
+		ctaDescription:
+			"Schließe dich tausenden Kreativen an, die Zineforge für ihre kühnsten visuellen Projekte vertrauen. Starte kostenlos, keine Kreditkarte nötig.",
 		ctaButton: "Vorlagen Entdecken",
 	},
 	blogPage: {
 		badge: "Blog",
 		heading: "Geschichten, Tipps & Updates",
-		subheading: "Einblicke vom Zineforge-Team über Design, Kreativität und die Entwicklung der Tools die du liebst.",
+		subheading:
+			"Einblicke vom Zineforge-Team über Design, Kreativität und die Entwicklung der Tools die du liebst.",
 		readMore: "Weiterlesen",
 		tags: {
 			tutorial: "Tutorial",
@@ -283,34 +394,41 @@ export const de: Dictionary = {
 		posts: {
 			post1: {
 				title: "Den Stretch-Wave-Effekt Meistern: Ein Kompletter Leitfaden",
-				excerpt: "Lerne, wie du fließende, gekrümmte Verzerrungen erstellst, die gewöhnliche Fotos in faszinierende Posterkunst verwandeln. Wir erklären jeden Parameter.",
+				excerpt:
+					"Lerne, wie du fließende, gekrümmte Verzerrungen erstellst, die gewöhnliche Fotos in faszinierende Posterkunst verwandeln. Wir erklären jeden Parameter.",
 			},
 			post2: {
 				title: "Die Kunst der Experimentellen Typografie im Digitalen Design",
-				excerpt: "Wie mutige Textmaskierung und Liquid-Fills die moderne Poster-Ästhetik neu gestalten — und wie du diese Techniken nutzen kannst.",
+				excerpt:
+					"Wie mutige Textmaskierung und Liquid-Fills die moderne Poster-Ästhetik neu gestalten — und wie du diese Techniken nutzen kannst.",
 			},
 			post3: {
 				title: "Neu: Halftone-Magazin & Pixel-Mosaik Vorlagen",
-				excerpt: "Wir haben zwei neue Vorlagen veröffentlicht, inspiriert von Retro-Druck und 8-Bit-Gaming-Ästhetik. So funktionieren sie.",
+				excerpt:
+					"Wir haben zwei neue Vorlagen veröffentlicht, inspiriert von Retro-Druck und 8-Bit-Gaming-Ästhetik. So funktionieren sie.",
 			},
 			post4: {
 				title: "Community-Spotlight: Die Besten Designs im September",
-				excerpt: "Von Konzertpostern bis zu Markenvisuals — diese Community-Kreationen zeigen die unglaubliche Bandbreite dessen, was mit Zineforge möglich ist.",
+				excerpt:
+					"Von Konzertpostern bis zu Markenvisuals — diese Community-Kreationen zeigen die unglaubliche Bandbreite dessen, was mit Zineforge möglich ist.",
 			},
 			post5: {
 				title: "5 Color-Grading-Tricks für Wirkungsvollere Poster",
-				excerpt: "Kleine Farbanpassungen können die Stimmung deines Designs dramatisch verändern. Hier sind fünf Techniken die wir verwenden.",
+				excerpt:
+					"Kleine Farbanpassungen können die Stimmung deines Designs dramatisch verändern. Hier sind fünf Techniken die wir verwenden.",
 			},
 			post6: {
 				title: "Warum Einschränkungen Bessere Kreative Arbeit Antreiben",
-				excerpt: "Wie das Arbeiten innerhalb eines Template-Systems deine Kreativität tatsächlich weiter treibt, und warum einige der besten Designs aus bewussten Limitierungen entstehen.",
+				excerpt:
+					"Wie das Arbeiten innerhalb eines Template-Systems deine Kreativität tatsächlich weiter treibt, und warum einige der besten Designs aus bewussten Limitierungen entstehen.",
 			},
 		},
 	},
 	showcasePage: {
 		badge: "Community-Galerie",
 		heading: "Galerie Entdecken",
-		subheading: "Durchstöbern Sie beeindruckende Kunstwerke, die von unserer Community mit Zineforges experimentellen visuellen und typografischen Vorlagen erstellt wurden.",
+		subheading:
+			"Durchstöbern Sie beeindruckende Kunstwerke, die von unserer Community mit Zineforges experimentellen visuellen und typografischen Vorlagen erstellt wurden.",
 		statsWorks: "Werke",
 		statsCreators: "Ersteller",
 		statsCountries: "Länder",
@@ -326,7 +444,8 @@ export const de: Dictionary = {
 	templatesPage: {
 		badge: "Alle Vorlagen",
 		heading: "Vorlagen-Bibliothek",
-		subheading: "Entdecken Sie unsere vollständige Sammlung experimenteller visueller Effektvorlagen. Jede ist für maximale kreative Wirkung gestaltet.",
+		subheading:
+			"Entdecken Sie unsere vollständige Sammlung experimenteller visueller Effektvorlagen. Jede ist für maximale kreative Wirkung gestaltet.",
 		viewDetails: "Details ansehen",
 		statsTemplates: "Vorlagen",
 		statsCategories: "Kategorien",
@@ -337,7 +456,8 @@ export const de: Dictionary = {
 		feature1: "Echtzeit-Parametersteuerung mit Live-Vorschau",
 		feature2: "Hochauflösender PNG-Export bis zu 4K",
 		feature3: "Funktioniert mit jedem Foto — Porträts, Landschaften, Objekte",
-		feature4: "Keine Designkenntnisse erforderlich — einfach hochladen und anpassen",
+		feature4:
+			"Keine Designkenntnisse erforderlich — einfach hochladen und anpassen",
 		exampleResults: "Beispielergebnisse",
 		exportQuality: "Exportqualität",
 		useTemplate: "Diese Vorlage Verwenden",

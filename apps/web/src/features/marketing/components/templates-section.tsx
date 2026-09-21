@@ -10,29 +10,97 @@ type ShowcaseItem = (typeof templatesShowcase)[number];
 
 /** Per-card accent colors for the tag badges */
 const TAG_COLORS: Record<string, { bg: string; text: string; ring: string }> = {
-	Distortion: { bg: "bg-[#ff6a3a]/15", text: "text-[#ff9a6a]", ring: "ring-[#ff6a3a]/30" },
-	Typography: { bg: "bg-[#3ae4ff]/15", text: "text-[#6aefff]", ring: "ring-[#3ae4ff]/30" },
-	Photoshop: { bg: "bg-[#c23bd6]/15", text: "text-[#d97ce8]", ring: "ring-[#c23bd6]/30" },
-	Glitch: { bg: "bg-[#00ffaa]/15", text: "text-[#66ffcc]", ring: "ring-[#00ffaa]/30" },
-	Duotone: { bg: "bg-[#e8d5b7]/15", text: "text-[#e8d5b7]", ring: "ring-[#e8d5b7]/30" },
-	Print: { bg: "bg-[#ffcc44]/15", text: "text-[#ffdd77]", ring: "ring-[#ffcc44]/30" },
-	Film: { bg: "bg-[#d4c4a0]/15", text: "text-[#d4c4a0]", ring: "ring-[#d4c4a0]/30" },
-	Neon: { bg: "bg-[#ff00ff]/15", text: "text-[#ff66ff]", ring: "ring-[#ff00ff]/30" },
-	Retro: { bg: "bg-[#00ff88]/15", text: "text-[#66ffaa]", ring: "ring-[#00ff88]/30" },
-	Surreal: { bg: "bg-[#c8a0ff]/15", text: "text-[#d4b8ff]", ring: "ring-[#c8a0ff]/30" },
+	Distortion: {
+		bg: "bg-[#ff6a3a]/15",
+		text: "text-[#ff9a6a]",
+		ring: "ring-[#ff6a3a]/30",
+	},
+	Typography: {
+		bg: "bg-[#3ae4ff]/15",
+		text: "text-[#6aefff]",
+		ring: "ring-[#3ae4ff]/30",
+	},
+	Photoshop: {
+		bg: "bg-[#c23bd6]/15",
+		text: "text-[#d97ce8]",
+		ring: "ring-[#c23bd6]/30",
+	},
+	Glitch: {
+		bg: "bg-[#00ffaa]/15",
+		text: "text-[#66ffcc]",
+		ring: "ring-[#00ffaa]/30",
+	},
+	Duotone: {
+		bg: "bg-[#e8d5b7]/15",
+		text: "text-[#e8d5b7]",
+		ring: "ring-[#e8d5b7]/30",
+	},
+	Print: {
+		bg: "bg-[#ffcc44]/15",
+		text: "text-[#ffdd77]",
+		ring: "ring-[#ffcc44]/30",
+	},
+	Film: {
+		bg: "bg-[#d4c4a0]/15",
+		text: "text-[#d4c4a0]",
+		ring: "ring-[#d4c4a0]/30",
+	},
+	Neon: {
+		bg: "bg-[#ff00ff]/15",
+		text: "text-[#ff66ff]",
+		ring: "ring-[#ff00ff]/30",
+	},
+	Retro: {
+		bg: "bg-[#00ff88]/15",
+		text: "text-[#66ffaa]",
+		ring: "ring-[#00ff88]/30",
+	},
+	Surreal: {
+		bg: "bg-[#c8a0ff]/15",
+		text: "text-[#d4b8ff]",
+		ring: "ring-[#c8a0ff]/30",
+	},
 	Bold: { bg: "bg-white/15", text: "text-white/85", ring: "ring-white/25" },
 	/* i18n fallbacks */
-	Verzerrung: { bg: "bg-[#ff6a3a]/15", text: "text-[#ff9a6a]", ring: "ring-[#ff6a3a]/30" },
-	Tipografi: { bg: "bg-[#3ae4ff]/15", text: "text-[#6aefff]", ring: "ring-[#3ae4ff]/30" },
-	Distorsi: { bg: "bg-[#ff6a3a]/15", text: "text-[#ff9a6a]", ring: "ring-[#ff6a3a]/30" },
-	Cetak: { bg: "bg-[#ffcc44]/15", text: "text-[#ffdd77]", ring: "ring-[#ffcc44]/30" },
+	Verzerrung: {
+		bg: "bg-[#ff6a3a]/15",
+		text: "text-[#ff9a6a]",
+		ring: "ring-[#ff6a3a]/30",
+	},
+	Tipografi: {
+		bg: "bg-[#3ae4ff]/15",
+		text: "text-[#6aefff]",
+		ring: "ring-[#3ae4ff]/30",
+	},
+	Distorsi: {
+		bg: "bg-[#ff6a3a]/15",
+		text: "text-[#ff9a6a]",
+		ring: "ring-[#ff6a3a]/30",
+	},
+	Cetak: {
+		bg: "bg-[#ffcc44]/15",
+		text: "text-[#ffdd77]",
+		ring: "ring-[#ffcc44]/30",
+	},
 	Tegas: { bg: "bg-white/15", text: "text-white/85", ring: "ring-white/25" },
 	Fett: { bg: "bg-white/15", text: "text-white/85", ring: "ring-white/25" },
-	Druck: { bg: "bg-[#ffcc44]/15", text: "text-[#ffdd77]", ring: "ring-[#ffcc44]/30" },
-	Typografie: { bg: "bg-[#3ae4ff]/15", text: "text-[#6aefff]", ring: "ring-[#3ae4ff]/30" },
+	Druck: {
+		bg: "bg-[#ffcc44]/15",
+		text: "text-[#ffdd77]",
+		ring: "ring-[#ffcc44]/30",
+	},
+	Typografie: {
+		bg: "bg-[#3ae4ff]/15",
+		text: "text-[#6aefff]",
+		ring: "ring-[#3ae4ff]/30",
+	},
 };
 
-const DEFAULT_TAG = { bg: "bg-white/10", text: "text-white/70", ring: "ring-white/15" };
+const DEFAULT_TAG = {
+	bg: "bg-white/10",
+	text: "text-white/70",
+	ring: "ring-white/15",
+};
 
 function TemplateCard({
 	item,
@@ -190,11 +258,7 @@ export function TemplatesSection() {
 						className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
 					>
 						{row1.map((item) => (
-							<TemplateCard
-								key={item.key}
-								item={item}
-								className="h-[446px]"
-							/>
+							<TemplateCard key={item.key} item={item} className="h-[446px]" />
 						))}
 					</div>
 
@@ -204,11 +268,7 @@ export function TemplatesSection() {
 						className="grid grid-cols-1 gap-5 sm:grid-cols-2"
 					>
 						{row2.map((item) => (
-							<TemplateCard
-								key={item.key}
-								item={item}
-								className="h-[446px]"
-							/>
+							<TemplateCard key={item.key} item={item} className="h-[446px]" />
 						))}
 					</div>
 
@@ -218,15 +278,10 @@ export function TemplatesSection() {
 						className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
 					>
 						{row3.map((item) => (
-							<TemplateCard
-								key={item.key}
-								item={item}
-								className="h-[446px]"
-							/>
+							<TemplateCard key={item.key} item={item} className="h-[446px]" />
 						))}
 					</div>
 				</div>
-
 			</div>
 		</section>
 	);
