@@ -190,14 +190,14 @@ function TemplateCard({ item }: { item: TemplateItem }) {
 	);
 
 	if (!isReal || !item.templateId) {
-		return <div className="h-[380px] sm:h-[420px]">{inner}</div>;
+		return <div className="h-95 sm:h-105">{inner}</div>;
 	}
 
 	return (
 		<Link
 			to="/templates/$slug"
 			params={{ slug: item.templateId }}
-			className="block h-[380px] rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 sm:h-[420px]"
+			className="block h-95 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 sm:h-[420px]"
 		>
 			{inner}
 		</Link>

@@ -113,7 +113,7 @@ function Editor() {
 
 		(async () => {
 			try {
-				const tpl: Template = await fetch(`/templates/${templateId}.json`).then(
+				const tpl: Template = await fetch(`/template-assets/${templateId}.json`).then(
 					(r) => r.json(),
 				);
 				app = new Application();
