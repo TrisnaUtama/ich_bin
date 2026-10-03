@@ -1,0 +1,113 @@
+{
+  "id": "cold-blue",
+  "name": "Cold Blue",
+  "version": 2,
+  "aspectRatios": ["5:4"],
+  "fonts": ["Arial", "Arial Narrow", "Krona One", "Michroma", "Inter"],
+  "background": {
+    "kind": "solid",
+    "color": "#08080a",
+    "opacity": 1,
+    "gradient": { "type": "linear", "angle": 45, "stops": [
+        { "color": "#08080a", "position": 0 },
+        { "color": "#1a2a4a", "position": 1 }
+    ]},
+    "texture": { "name": "glow-grain", "blendMode": "screen", "opacity": 50, "fill": 100 }
+    },
+  "canvas": {
+    "width": 1350,
+    "height": 1080,
+    "background": {
+      "kind": "solid",
+      "color": "#08080a",
+      "opacity": 1,
+      "gradient": {
+        "type": "linear",
+        "angle": 45,
+        "stops": [
+          { "color": "#08080a", "position": 0 },
+          { "color": "#1a2a4a", "position": 1 }
+        ]
+      }
+    }
+  },
+  "layers": [
+    {
+      "type": "image",
+      "slot": "photo",
+      "effectFit": "cover",
+      "subjectFit": "cover",
+      "controls": {
+        "exposure": 0,
+        "contrast": 0,
+        "saturation": 0,
+        "temperature": 0,
+        "tint": 0,
+        "highlights": 0,
+        "shadows": 0,
+        "opacity": 100,
+        "scale": 100,
+        "rotation": 0
+      },
+      "effects": [
+        {
+          "id": "cold-blue",
+          "type": "coldBlue",
+          "tint": 85,
+          "contrast": 130,
+          "brightness": 0,
+          "glow": 60,
+          "glowRadius": 40,
+          "threshold": 35
+        },
+        {
+          "id": "cold-blue-grain",
+          "type": "grain"
+        },
+        {
+          "id": "cold-blue-vignette",
+          "type": "vignette"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "slot": "badge",
+      "label": "Badge (Year)",
+      "default": "2018",
+      "font": "Arial Narrow",
+      "size": 30,
+      "letterSpacing": 0,
+      "color": "#ffffff",
+      "weight": "bold",
+      "x": 562,
+      "y": 400
+    },
+    {
+      "type": "text",
+      "slot": "heading",
+      "label": "Heading (Title)",
+      "default": "All Night",
+      "font": "Krona One",
+      "size": 112,
+      "letterSpacing": 0,
+      "color": "#F8B84E",
+      "weight": "bold",
+      "x": 75,
+      "y": 430
+    },
+    {
+      "type": "text",
+      "slot": "description",
+      "label": "Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+      "font": "Arial Narrow",
+      "size": 22,
+      "letterSpacing": 0,
+      "color": "#ffffff",
+      "x": 75,
+      "y": 580,
+      "maxWidth": 470
+    }
+  ]
+}

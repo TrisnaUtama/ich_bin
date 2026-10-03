@@ -10,6 +10,7 @@ export const TEMPLATE_LIST = [
 	{ id: "pixel-mosaic", name: "Pixel Mosaic" },
 	{ id: "wave-dreams", name: "Wave Dreams" },
 	{ id: "bold-split", name: "Bold Split" },
+	{ id: "cold-blue", name: "Cold Blue" },
 ] as const;
 
 export const DEFAULT_TEMPLATE = "stretch-wave-timur";

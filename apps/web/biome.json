@@ -9,6 +9,9 @@
 	},
 	"linter": {
 		"rules": {
+			"a11y":{
+				"noSvgWithoutTitle": "off"
+			},
 			"correctness": {
 				"useExhaustiveDependencies": "warn"
 			}

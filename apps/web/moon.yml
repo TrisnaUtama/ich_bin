@@ -3,7 +3,7 @@ id: web
 
 tasks:
   dev:
-    command: bun run vite dev --port 3000
+    command: bun run vite dev --port 8888
 
   build:
     command: bun run vite build
